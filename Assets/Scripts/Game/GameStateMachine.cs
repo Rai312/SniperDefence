@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameStateMachine : MonoBehaviour
 {
     [SerializeField] private UI _uI;
-    
 
     private Dictionary<Type, IGameState> _statesMap;
     private IGameState _currentState;
@@ -40,7 +38,7 @@ public class GameStateMachine : MonoBehaviour
             [typeof(PlayState)] = new PlayState(),
             [typeof(PauseState)] = new PauseState(),
             [typeof(EndLevelState)] = new EndLevelState(),
-            [typeof(FailState)] = new FailState(),
+            [typeof(FailState)] = new FailState(_uI),
         };
     }
 
@@ -56,7 +54,7 @@ public class GameStateMachine : MonoBehaviour
         SetState(state);
     }
 
-    public void SetPlayState()
+    private void SetPlayState()
     {
         var state = GetState<PlayState>();
         SetState(state);
@@ -68,13 +66,13 @@ public class GameStateMachine : MonoBehaviour
         SetState(state);
     }
 
-    public void SetEndlevelState()
+    private void SetEndlevelState()
     {
         var state = GetState<EndLevelState>();
         SetState(state);
     }
 
-    public void SetFailState()
+    private void SetFailState()
     {
         var state = GetState<FailState>();
         SetState(state);
