@@ -395,8 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9774d1569c935ed42bd54d6a35a99c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstTeam: {fileID: 986401002}
-  _secondTeam: {fileID: 1685566862}
+  _teamPlayer: {fileID: 1685566862}
+  _teamEnemy: {fileID: 986401002}
 --- !u!4 &1137123470
 Transform:
   m_ObjectHideFlags: 0
