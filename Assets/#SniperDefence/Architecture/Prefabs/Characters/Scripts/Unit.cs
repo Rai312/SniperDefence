@@ -15,7 +15,6 @@ public abstract class Unit : MonoBehaviour
     private int _currentHealth;
     private IReadOnlyList<Unit> _targets;
     private Unit _target;
-    //private Animator _currentAnimator;
 
     public bool IsAlive { get; private set; }
     public float HitDistance => _hitDistance;
@@ -28,11 +27,6 @@ public abstract class Unit : MonoBehaviour
     public event Action TargetAssigned;
     public event Action Fight;
     public event Action Died;
-
-    //public void Initialize(IReadOnlyList<Unit> units)
-    //{
-    //    _targets = units;
-    //}
 
     public void Initialize(IReadOnlyList<Unit> enemies)
     {
@@ -85,7 +79,10 @@ public abstract class Unit : MonoBehaviour
     public void HitTarget()
     {
         if (_target != null)
+        {
             _target.ApplyDamage(_damage);
+        }
+
     }
 
     public void StartFighting()
@@ -108,7 +105,7 @@ public abstract class Unit : MonoBehaviour
         Waiting?.Invoke();
     }
 
-    private Unit FindTarget()
+    private Unit FindTarget()//DUPLICATE
     {
         if (this is Enemy)
         {
@@ -128,7 +125,6 @@ public abstract class Unit : MonoBehaviour
                 }
             }
             return nearestTarget;
-            //Debug.Log("I'm enemy - " + this);
         }
         else
         {
@@ -146,26 +142,9 @@ public abstract class Unit : MonoBehaviour
                         distanceToNearestTarget = distanceToTarget;
                     }
                 }
-
-
-                //Debug.Log("I'm policeman - " + this);
             }
             return nearestTarget;
         }
-        //Unit nearestTarget = null;
-        //float distanceToNearestTarget = float.MaxValue;
-        //for (int i = 0; i < _targets.Count; i++)
-        //{
-        //    float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
-
-        //    if (distanceToTarget < distanceToNearestTarget)
-        //    {
-        //        nearestTarget = _targets[i];
-        //        distanceToNearestTarget = distanceToTarget;
-        //    }
-        //}
-        //return nearestTarget;
-
     }
 
     private void OnTargetDied()

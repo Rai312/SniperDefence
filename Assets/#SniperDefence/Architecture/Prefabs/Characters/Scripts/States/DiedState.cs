@@ -11,12 +11,11 @@ public class DiedState : IUnitState
 
     public void Enter()
     {
-        //Debug.Log("Die - Enter");
+        _unit.gameObject.SetActive(false);
     }
 
     public void Exit()
     {
-        //Debug.Log("Die - Exit");
     }
 
     public void FixedUpdate()

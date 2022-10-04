@@ -14,6 +14,7 @@ public class MovementState : IUnitState
         //Debug.Log("Move - Enter");
         _unit.NavMeshAgent.enabled = true;
         _unit.UnitAnimator.ShowRun();
+        _unit.transform.LookAt(_unit.Target.transform.position);
     }
 
     public void Exit()

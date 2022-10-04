@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class Battle : MonoBehaviour
 {
-    [SerializeField] private Team _firstTeam;
-    [SerializeField] private Team _secondTeam;
+    [SerializeField] private Team _teamPlayer;
+    [SerializeField] private Team _teamEnemy;
 
     //[SerializeField] private Text _drawMessage;
     //[SerializeField] private Text _firstTeamWinText;
@@ -18,12 +18,12 @@ public class Battle : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (var unit in _firstTeam.Units)
+        foreach (var unit in _teamPlayer.Units)
         {
             unit.Died -= CheckWin;
         }
 
-        foreach (var unit in _secondTeam.Units)
+        foreach (var unit in _teamEnemy.Units)
         {
             unit.Died -= CheckWin;
         }
@@ -31,12 +31,12 @@ public class Battle : MonoBehaviour
 
     public void StartBattle()
     {
-        foreach (var unit in _firstTeam.Units)
+        foreach (var unit in _teamPlayer.Units)
         {
             unit.StartBattle();
         }
 
-        foreach (var unit in _secondTeam.Units)
+        foreach (var unit in _teamEnemy.Units)
         {
             unit.StartBattle();
         }
@@ -44,17 +44,17 @@ public class Battle : MonoBehaviour
 
     private void Initialization()
     {
-        foreach (var unit in _firstTeam.Units)
+        foreach (var unit in _teamPlayer.Units)
         {
-            unit.Initialize(_secondTeam.Units);
+            unit.Initialize(_teamEnemy.Units);
             unit.Died += CheckWin;
 
             //unit.SetNeoAvatar();
         }
 
-        foreach (var unit in _secondTeam.Units)
+        foreach (var unit in _teamEnemy.Units)
         {
-            unit.Initialize(_firstTeam.Units);
+            unit.Initialize(_teamPlayer.Units);
             unit.Died += CheckWin;
 
             //unit.SetJenkinsAvatar();
@@ -63,8 +63,8 @@ public class Battle : MonoBehaviour
 
     private void CheckWin()
     {
-        bool firstTeamResult = _firstTeam.CheckLose();
-        bool secondTeamResult = _secondTeam.CheckLose();
+        bool firstTeamResult = _teamPlayer.CheckLose();
+        bool secondTeamResult = _teamEnemy.CheckLose();
 
         //if (firstTeamResult && secondTeamResult)
         //{
