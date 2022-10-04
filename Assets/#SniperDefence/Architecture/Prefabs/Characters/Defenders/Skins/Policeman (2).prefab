@@ -203,6 +203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26142edd5ff693445a49b5e7b6c41fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unitAnimator: {fileID: 915012286405972968}
+  _navMeshAgent: {fileID: 915012286405972982}
+  _hitDistance: 2
+  _health: 100
+  _damage: 30
 --- !u!1 &7422751653736480483
 GameObject:
   m_ObjectHideFlags: 0

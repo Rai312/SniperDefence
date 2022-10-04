@@ -47,7 +47,7 @@ public abstract class Unit : MonoBehaviour
             _target.Died -= OnTargetDied;
     }
 
-    public abstract void SetAvatar();
+    //public abstract void SetAvatar();
 
 
     public void SetTarget()

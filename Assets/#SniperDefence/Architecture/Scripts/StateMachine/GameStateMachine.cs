@@ -6,6 +6,7 @@ public class GameStateMachine : MonoBehaviour
 {
     [SerializeField] private UI _uI;
     [SerializeField] private Battle _battle;
+    [SerializeField] private Spawner _spawner;
 
     private Dictionary<Type, IGameState> _statesMap;
     private IGameState _currentState;

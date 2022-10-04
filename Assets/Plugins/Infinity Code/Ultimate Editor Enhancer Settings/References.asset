@@ -176,5 +176,9 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
+  - name: Max2
+    path: Assets/Scenes/Max/Max2.unity
+  - name: MaxScene!!!
+    path: Assets/Scenes/Max/MaxScene!!!.unity
   - name: MAXScene2
     path: Assets/Scenes/Max/MAXScene2.unity

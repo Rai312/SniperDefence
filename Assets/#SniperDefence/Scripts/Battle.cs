@@ -48,16 +48,12 @@ public class Battle : MonoBehaviour
         {
             unit.Initialize(_teamEnemy.Units);
             unit.Died += CheckWin;
-
-            //unit.SetNeoAvatar();
         }
 
         foreach (var unit in _teamEnemy.Units)
         {
             unit.Initialize(_teamPlayer.Units);
             unit.Died += CheckWin;
-
-            //unit.SetJenkinsAvatar();
         }
     }
 
