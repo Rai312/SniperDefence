@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PolicemanFighter : Defender
+public class PolicemanFighter : Unit
 {
-  
+  public override void SetAvatar()
+  {
+    
+  }
 }

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -14,7 +13,7 @@ public class Spawner : MonoBehaviour
   private Collider[] _colliders;
   private float _rayDistance = 1000f;
   private float _radius = 6f;
-  private Defender _activeDefender;
+  private Unit _activeDefender;
 
   private void OnEnable()
   {
@@ -26,7 +25,7 @@ public class Spawner : MonoBehaviour
     _buttonSelectionLogic.ButtonSelected -= ChooseSpawnUnit;
   }
 
-  private void ChooseSpawnUnit(Defender defender)
+  private void ChooseSpawnUnit(Unit defender)
   {
     _activeDefender = defender;
   }
@@ -48,7 +47,7 @@ public class Spawner : MonoBehaviour
 
     foreach (var intersectin in intersecting)
     {
-      if (intersectin.TryGetComponent<Defender>(out Defender defender))
+      if (intersectin.TryGetComponent<Unit>(out Unit defender))
         return false;
     }
 
