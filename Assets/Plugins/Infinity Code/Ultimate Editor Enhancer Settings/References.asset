@@ -178,3 +178,5 @@ MonoBehaviour:
   _sceneHistory:
   - name: MaxScene!!!
     path: Assets/Scenes/MaxScene!!!.unity
+  - name: IlyaScene!!!
+    path: Assets/Scenes/IlyaScene!!!.unity

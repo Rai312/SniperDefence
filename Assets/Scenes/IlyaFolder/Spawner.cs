@@ -59,11 +59,12 @@ public class Spawner : MonoBehaviour
   {
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     RaycastHit hit;
-
+    Vector3 offsets = new Vector3(0,1f,0);
+    
     if (Physics.Raycast(ray, out hit, _rayDistance, _raycastMask))
     {
       if (CanSpawn(hit.point))
-        Instantiate(_activeDefender, hit.point, Quaternion.identity, null);
+        Instantiate(_activeDefender, (hit.point + offsets) , Quaternion.identity, null);
     }
   }
 }
