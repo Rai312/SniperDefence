@@ -176,9 +176,5 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
-  - name: MaxScene!!!
-    path: Assets/Scenes/MaxScene!!!.unity
   - name: IlyaScene!!!
     path: Assets/Scenes/IlyaScene!!!.unity
-  - name: SampleScene
-    path: Assets/Scenes/SampleScene.unity
