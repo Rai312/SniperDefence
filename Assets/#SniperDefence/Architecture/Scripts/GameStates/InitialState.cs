@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class InitialState : IGameState
 {
+    private readonly Battle _battle;
+
+    public InitialState(Battle battle)
+    {
+        _battle = battle;
+    }
+
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("InitialState - Enter");
+        _battle.StartBattle();
     }
 
     public void Exit()

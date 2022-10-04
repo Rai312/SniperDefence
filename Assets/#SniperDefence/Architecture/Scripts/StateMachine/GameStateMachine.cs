@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameStateMachine : MonoBehaviour
 {
     [SerializeField] private UI _uI;
+    [SerializeField] private Battle _battle;
 
     private Dictionary<Type, IGameState> _statesMap;
     private IGameState _currentState;
@@ -33,7 +34,7 @@ public class GameStateMachine : MonoBehaviour
     {
         _statesMap = new Dictionary<Type, IGameState>
         {
-            [typeof(InitialState)] = new InitialState(),
+            [typeof(InitialState)] = new InitialState(_battle),
             [typeof(OpeningState)] = new OpeningState(),
             [typeof(PlayState)] = new PlayState(),
             [typeof(PauseState)] = new PauseState(),

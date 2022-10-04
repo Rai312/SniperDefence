@@ -19,8 +19,7 @@ public class WaitingState : IUnitState
         Debug.Log("WaitingState - Exit");
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
-        throw new System.NotImplementedException();
     }
 }

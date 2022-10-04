@@ -19,8 +19,7 @@ public class DiedState : IUnitState
         Debug.Log("Die - Exit");
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
-        throw new System.NotImplementedException();
     }
 }

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class TargetSearchState : IUnitState
 {
     private Unit _unit;
@@ -9,16 +11,17 @@ public class TargetSearchState : IUnitState
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("TargetSearch - Enter");
+        _unit.SetTarget();
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("TargetSearch - Enter");
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
-        throw new System.NotImplementedException();
+
     }
 }

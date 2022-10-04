@@ -17,12 +17,20 @@ public class UnitStateMachine : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        _unit.Waiting += SetWaitingState;
+        _unit.TargetSearching += SetTargetSearchState;
+        _unit.TargetAssigned += SetMovementState;
+        _unit.Fight += SetFightingState;
+        _unit.Died += SetDiedState;
     }
 
     private void OnDisable()
     {
-        
+        _unit.Waiting -= SetWaitingState;
+        _unit.TargetSearching -= SetTargetSearchState;
+        _unit.TargetAssigned -= SetMovementState;
+        _unit.Fight -= SetFightingState;
+        _unit.Died -= SetDiedState;
     }
 
     private void Start()
@@ -74,7 +82,7 @@ public class UnitStateMachine : MonoBehaviour
 
     private void SetStateByDefault()
     {
-        SetWaitingState();
+        SetTargetSearchState();
     }
 
     private void SetState(IUnitState newState)
@@ -90,5 +98,11 @@ public class UnitStateMachine : MonoBehaviour
     {
         var type = typeof(T);
         return _statesMap[type];
+    }
+
+    private void FixedUpdate()
+    {
+        if (_currentState != null)
+            _currentState.FixedUpdate();
     }
 }

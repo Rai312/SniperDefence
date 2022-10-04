@@ -3,6 +3,7 @@ using UnityEngine;
 public class FightingState : IUnitState
 {
     private Unit _unit;
+    private float _timeToAttack;
 
     public FightingState(Unit unit)
     {
@@ -12,6 +13,8 @@ public class FightingState : IUnitState
     public void Enter()
     {
         Debug.Log("Fighting - Enter");
+        _timeToAttack = 0.2f;
+        _unit.transform.LookAt(_unit.transform.position);
     }
 
     public void Exit()
@@ -19,8 +22,13 @@ public class FightingState : IUnitState
         Debug.Log("Fighting - Exit");
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
-        throw new System.NotImplementedException();
+        // if (_timeToAttack <= 0)
+        // {
+        //     _unit.HitTarget();
+        //     _timeToAttack = _unit.AttackDuration;
+        // }
+        // _timeToAttack -= Time.deltaTime;
     }
 }

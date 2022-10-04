@@ -24,9 +24,14 @@ public abstract class Unit : MonoBehaviour
     public event Action Fight;
     public event Action Died;
 
-    public void Initialize(IReadOnlyList<Unit> units)
+    //public void Initialize(IReadOnlyList<Unit> units)
+    //{
+    //    _targets = units;
+    //}
+
+    public void Initialize(Unit unit)
     {
-        _targets = units;
+        _target = unit;
     }
 
     private void OnDisable()
@@ -71,7 +76,7 @@ public abstract class Unit : MonoBehaviour
     {
         Unit nearestTarget = null;
         float distanceToNearestTarget = float.MaxValue;
-
+        Debug.Log(_targets.Count);
         for (int i = 0; i < _targets.Count; i++)
         {
             float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);

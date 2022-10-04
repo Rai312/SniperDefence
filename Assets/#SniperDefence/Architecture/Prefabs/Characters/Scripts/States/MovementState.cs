@@ -22,7 +22,7 @@ public class MovementState : IUnitState
         _unit.NavMeshAgent.enabled = false;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         _unit.NavMeshAgent.SetDestination(_unit.Target.transform.position);
         if (Vector3.Distance(_unit.transform.position, _unit.Target.transform.position) < _unit.HitDistance)
