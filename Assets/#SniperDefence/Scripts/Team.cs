@@ -3,23 +3,32 @@ using UnityEngine;
 
 public class Team : MonoBehaviour
 {
-    [SerializeField] private Team _enemyTeam;
     [SerializeField] private List<Unit> _units;
 
     public IReadOnlyList<Unit> Units => _units;
 
-    public void StartBatte()
-    {
-        //_unit
-        //foreach (var unit in _units)
-        //{
-        //    unit.Initialize(_enemyTeam.Units);
-        //    unit.StartBattle();
-        //}
-    }
+//#if UNITY_EDITOR
+//    private void OnValidate()
+//    {
+//        _units.Clear();
+//        _units.AddRange(GetComponentsInChildren<Unit>());
+//    }
 
-    //public void ExecuteTeam()
-    //{
-    //    foreach
-    //}
+//    private void Reset()
+//    {
+//        _units.Clear();
+//        _units.AddRange(GetComponentsInChildren<Unit>());
+//    }
+//#endif
+
+    public bool CheckLose()
+    {
+        foreach (var unit in _units)
+        {
+            if (unit.IsAlive)
+                return false;
+        }
+
+        return true;
+    }
 }

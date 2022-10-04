@@ -13,7 +13,7 @@ public class InitialState : IGameState
 
     public void Enter()
     {
-        Debug.Log("InitialState - Enter");
+        //Debug.Log("InitialState - Enter");
         _battle.StartBattle();
     }
 

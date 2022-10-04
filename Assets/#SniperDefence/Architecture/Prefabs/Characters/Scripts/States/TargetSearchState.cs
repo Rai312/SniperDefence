@@ -11,13 +11,13 @@ public class TargetSearchState : IUnitState
 
     public void Enter()
     {
-        Debug.Log("TargetSearch - Enter");
+        //Debug.Log("TargetSearch - Enter");
         _unit.SetTarget();
     }
 
     public void Exit()
     {
-        Debug.Log("TargetSearch - Enter");
+        //Debug.Log("TargetSearch - Enter");
     }
 
     public void FixedUpdate()

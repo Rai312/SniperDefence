@@ -11,12 +11,12 @@ public class DiedState : IUnitState
 
     public void Enter()
     {
-        Debug.Log("Die - Enter");
+        //Debug.Log("Die - Enter");
     }
 
     public void Exit()
     {
-        Debug.Log("Die - Exit");
+        //Debug.Log("Die - Exit");
     }
 
     public void FixedUpdate()

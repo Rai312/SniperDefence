@@ -11,12 +11,12 @@ public class WaitingState : IUnitState
 
     public void Enter()
     {
-        Debug.Log("WaitingState - Enter");
+        //Debug.Log("WaitingState - Enter");
     }
 
     public void Exit()
     {
-        Debug.Log("WaitingState - Exit");
+        //Debug.Log("WaitingState - Exit");
     }
 
     public void FixedUpdate()

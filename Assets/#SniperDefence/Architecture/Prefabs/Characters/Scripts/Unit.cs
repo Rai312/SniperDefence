@@ -6,15 +6,21 @@ using UnityEngine.AI;
 
 public abstract class Unit : MonoBehaviour
 {
-    [SerializeField] private UnitAnimator _unitAnimator;
+    //[SerializeField] private UnitAnimator _unitAnimator;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private float _hitDistance;
+    [SerializeField] private int _health;
+    [SerializeField] private int _damage;
+    [SerializeField] private float _attackDuration;
 
+    private int _currentHealth;
     private IReadOnlyList<Unit> _targets;
     private Unit _target;
+    //private Animator _currentAnimator;
 
+    public bool IsAlive { get; private set; }
     public float HitDistance => _hitDistance;
-    public UnitAnimator UnitAnimator => _unitAnimator;
+    //public UnitAnimator UnitAnimator => _unitAnimator;
     public Unit Target => _target;
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
@@ -29,9 +35,17 @@ public abstract class Unit : MonoBehaviour
     //    _targets = units;
     //}
 
-    public void Initialize(Unit unit)
+    public void Initialize(IReadOnlyList<Unit> enemies)
     {
-        _target = unit;
+        if (enemies == null)
+            throw new ArgumentNullException("Unit is not initialized by enemies.");
+        _currentHealth = _health;
+        _targets = enemies;
+    }
+
+    private void OnEnable()
+    {
+        IsAlive = true;
     }
 
     private void OnDisable()
@@ -39,6 +53,9 @@ public abstract class Unit : MonoBehaviour
         if (_targets != null)
             _target.Died -= OnTargetDied;
     }
+
+    public abstract void SetAvatar();
+
 
     public void SetTarget()
     {
@@ -50,6 +67,26 @@ public abstract class Unit : MonoBehaviour
         }
         _target.Died += OnTargetDied;
         TargetAssigned?.Invoke();
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        if (damage < _currentHealth)
+            _currentHealth -= damage;
+        else
+        {
+            IsAlive = false;
+            if (_target != null)
+                _target.Died -= OnTargetDied;
+
+            Died?.Invoke();
+        }
+    }
+
+    public void HitTarget()
+    {
+        if (_target != null)
+            _target.ApplyDamage(_damage);
     }
 
     public void StartFighting()
@@ -76,7 +113,6 @@ public abstract class Unit : MonoBehaviour
     {
         Unit nearestTarget = null;
         float distanceToNearestTarget = float.MaxValue;
-        Debug.Log(_targets.Count);
         for (int i = 0; i < _targets.Count; i++)
         {
             float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
