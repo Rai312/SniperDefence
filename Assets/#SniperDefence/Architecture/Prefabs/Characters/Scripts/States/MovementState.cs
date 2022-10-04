@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class MovementState : IUnitState
 {
     private Unit _unit;
@@ -9,16 +11,21 @@ public class MovementState : IUnitState
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Move - Enter");
+        _unit.NavMeshAgent.enabled = true;
+        //_unit.UnitAnimator.SetTrigger()
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Move - Exit");
+        _unit.NavMeshAgent.enabled = false;
     }
 
     public void Update()
     {
-        throw new System.NotImplementedException();
+        _unit.NavMeshAgent.SetDestination(_unit.Target.transform.position);
+        if (Vector3.Distance(_unit.transform.position, _unit.Target.transform.position) < _unit.HitDistance)
+            _unit.StartFighting();
     }
 }

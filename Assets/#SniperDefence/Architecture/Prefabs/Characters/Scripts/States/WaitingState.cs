@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class WaitingState : IUnitState
 {
     private Unit _unit;
@@ -9,12 +11,12 @@ public class WaitingState : IUnitState
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("WaitingState - Enter");
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("WaitingState - Exit");
     }
 
     public void Update()

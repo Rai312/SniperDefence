@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class FightingState : IUnitState
 {
     private Unit _unit;
@@ -9,12 +11,12 @@ public class FightingState : IUnitState
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Fighting - Enter");
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Fighting - Exit");
     }
 
     public void Update()

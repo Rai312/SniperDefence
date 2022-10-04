@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class DiedState : IUnitState
 {
     private Unit _unit;
@@ -9,12 +11,12 @@ public class DiedState : IUnitState
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Die - Enter");
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Die - Exit");
     }
 
     public void Update()
