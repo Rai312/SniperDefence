@@ -13,12 +13,13 @@ public class MovementState : IUnitState
     {
         //Debug.Log("Move - Enter");
         _unit.NavMeshAgent.enabled = true;
-        //_unit.UnitAnimator.SetTrigger()
+        _unit.UnitAnimator.ShowRun();
     }
 
     public void Exit()
     {
         //Debug.Log("Move - Exit");
+        _unit.UnitAnimator.ResetTrigger();
         _unit.NavMeshAgent.enabled = false;
     }
 

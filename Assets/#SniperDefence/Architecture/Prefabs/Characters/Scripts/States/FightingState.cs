@@ -15,10 +15,12 @@ public class FightingState : IUnitState
         Debug.Log("Fighting - Enter - " + this);
         _timeToAttack = 0.2f;
         _unit.transform.LookAt(_unit.transform.position);
+        _unit.UnitAnimator.ShowAttack();
     }
 
     public void Exit()
     {
+        _unit.UnitAnimator.ResetTrigger();
         Debug.Log("Fighting - Exit - " + this);
     }
 

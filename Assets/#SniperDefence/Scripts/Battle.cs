@@ -11,7 +11,7 @@ public class Battle : MonoBehaviour
     //[SerializeField] private Text _firstTeamWinText;
     //[SerializeField] private Text _secondTeamWinText;
 
-    private void Start()
+    private void Awake()
     {
         Initialization();
     }

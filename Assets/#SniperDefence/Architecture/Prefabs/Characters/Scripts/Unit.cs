@@ -6,12 +6,11 @@ using UnityEngine.AI;
 
 public abstract class Unit : MonoBehaviour
 {
-    //[SerializeField] private UnitAnimator _unitAnimator;
+    [SerializeField] private UnitAnimator _unitAnimator;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private float _hitDistance;
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
-    [SerializeField] private float _attackDuration;
 
     private int _currentHealth;
     private IReadOnlyList<Unit> _targets;
@@ -20,7 +19,7 @@ public abstract class Unit : MonoBehaviour
 
     public bool IsAlive { get; private set; }
     public float HitDistance => _hitDistance;
-    //public UnitAnimator UnitAnimator => _unitAnimator;
+    public UnitAnimator UnitAnimator => _unitAnimator;
     public Unit Target => _target;
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
@@ -111,19 +110,62 @@ public abstract class Unit : MonoBehaviour
 
     private Unit FindTarget()
     {
-        Unit nearestTarget = null;
-        float distanceToNearestTarget = float.MaxValue;
-        for (int i = 0; i < _targets.Count; i++)
+        if (this is Enemy)
         {
-            float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
-
-            if (distanceToTarget < distanceToNearestTarget)
+            Unit nearestTarget = null;
+            float distanceToNearestTarget = float.MaxValue;
+            for (int i = 0; i < _targets.Count; i++)
             {
-                nearestTarget = _targets[i];
-                distanceToNearestTarget = distanceToTarget;
+                if (_targets[i] is Policeman)
+                {
+                    float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
+
+                    if (distanceToTarget < distanceToNearestTarget)
+                    {
+                        nearestTarget = _targets[i];
+                        distanceToNearestTarget = distanceToTarget;
+                    }
+                }
             }
+            return nearestTarget;
+            //Debug.Log("I'm enemy - " + this);
         }
-        return nearestTarget;
+        else
+        {
+            Unit nearestTarget = null;
+            float distanceToNearestTarget = float.MaxValue;
+            for (int i = 0; i < _targets.Count; i++)
+            {
+                if (_targets[i] is Enemy)
+                {
+                    float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
+
+                    if (distanceToTarget < distanceToNearestTarget)
+                    {
+                        nearestTarget = _targets[i];
+                        distanceToNearestTarget = distanceToTarget;
+                    }
+                }
+
+
+                //Debug.Log("I'm policeman - " + this);
+            }
+            return nearestTarget;
+        }
+        //Unit nearestTarget = null;
+        //float distanceToNearestTarget = float.MaxValue;
+        //for (int i = 0; i < _targets.Count; i++)
+        //{
+        //    float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
+
+        //    if (distanceToTarget < distanceToNearestTarget)
+        //    {
+        //        nearestTarget = _targets[i];
+        //        distanceToNearestTarget = distanceToTarget;
+        //    }
+        //}
+        //return nearestTarget;
+
     }
 
     private void OnTargetDied()
