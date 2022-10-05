@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
   private float _rayDistance = 1000f;
   private float _radius = 6f;
   private Unit _activeDefender;
+  private Unit _spawnedUnit;
 
   private void OnEnable()
   {
@@ -23,6 +24,14 @@ public class Spawner : MonoBehaviour
   private void OnDisable()
   {
     _buttonSelectionLogic.ButtonSelected -= ChooseSpawnUnit;
+  }
+
+  public Unit GetSpawnedUnit()
+  {
+    if (_spawnedUnit != null)
+      return _spawnedUnit;
+
+    return null;
   }
 
   private void ChooseSpawnUnit(Unit defender)
@@ -43,7 +52,8 @@ public class Spawner : MonoBehaviour
 
   private bool CanSpawn(Vector3 hitPoint)
   {
-    Collider[] intersecting = Physics.OverlapBox(hitPoint, (_activeDefender.GetComponent<MeshRenderer>().bounds.size / 2));
+    Collider[] intersecting =
+      Physics.OverlapBox(hitPoint, (_activeDefender.GetComponent<MeshRenderer>().bounds.size / 2));
 
     foreach (var intersectin in intersecting)
     {
@@ -58,12 +68,12 @@ public class Spawner : MonoBehaviour
   {
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     RaycastHit hit;
-    Vector3 offsets = new Vector3(0,1f,0);
-    
+    Vector3 offsets = new Vector3(0, 1f, 0);
+
     if (Physics.Raycast(ray, out hit, _rayDistance, _raycastMask))
     {
       if (CanSpawn(hit.point))
-        Instantiate(_activeDefender, (hit.point + offsets) , Quaternion.identity, null);
+        _spawnedUnit = Instantiate(_activeDefender, (hit.point + offsets), Quaternion.identity, null);
     }
   }
 }

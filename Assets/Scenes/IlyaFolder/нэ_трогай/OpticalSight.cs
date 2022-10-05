@@ -1,18 +1,16 @@
-using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class OpticalSight : MonoBehaviour
 {
-  [SerializeField] private float startZoom;
-  [SerializeField] private Texture2D mainTex;
+  [SerializeField] private float _startZoom;
+  [SerializeField] private GameObject _sight;
 
   private Camera _camera;
   private float _maximuFov = 60;
-  private float _minimumFOV = 1;
-  private float _speed = 10;
-  private float _zoom;
-  private bool _isZoomStart;
-  private bool _isZoom;
+  private float _targetZoom;
+  private float _duration = 1f;
 
   private void Awake()
   {
@@ -21,44 +19,25 @@ public class OpticalSight : MonoBehaviour
 
   void Update()
   {
-    if (Input.touchCount > 0)
+    if (Input.GetKeyDown(KeyCode.Z))
     {
-      Touch touch = Input.GetTouch(0);
-
-      if (touch.phase == TouchPhase.Moved)
-      {
-      }
+      Show();
     }
-
-    if (Input.GetMouseButton(1))
-    {
-      _isZoom = true;
-
-      if (_isZoomStart == false)
-      {
-        _isZoomStart = true;
-        _zoom = _maximuFov - startZoom;
-      }
-    }
-    else
-    {
-      _isZoomStart = false;
-      _isZoom = false;
-      _zoom = _maximuFov;
-    }
-
-    _zoom = Mathf.Clamp(_zoom, _minimumFOV, _maximuFov);
-    _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, _zoom, _speed * Time.deltaTime);
+    else if (Input.GetKeyDown(KeyCode.X))
+      Hide();
   }
 
-  private void OnGUI()
+  private void Show()
   {
-    if (_isZoom == true)
-    {
-      GUI.depth = 999;
-      int horizontal = Screen.width;
-      int vertical = Screen.height;
-      GUI.DrawTexture(new Rect((horizontal - vertical) / 2, 0, vertical, vertical), mainTex);
-    }
+    _sight.SetActive(true);
+    _targetZoom = _maximuFov - _startZoom;
+    _camera.DOFieldOfView(_targetZoom, _duration);
+  }
+
+  private void Hide()
+  {
+    _sight.SetActive(false);
+    _targetZoom = _maximuFov;
+    _camera.DOFieldOfView(_maximuFov, _duration);
   }
 }
