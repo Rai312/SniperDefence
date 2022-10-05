@@ -21,6 +21,7 @@ public abstract class Unit : MonoBehaviour
     public UnitAnimator UnitAnimator => _unitAnimator;
     public Unit Target => _target;
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
+    public float Health => _health;
 
     public event Action Waiting;
     public event Action TargetSearching;
@@ -80,7 +81,10 @@ public abstract class Unit : MonoBehaviour
     {
         if (_target != null)
         {
-            _target.ApplyDamage(_damage);
+            if (_target.Health <= 0)
+                TargetAssigned?.Invoke();
+            else
+                _target.ApplyDamage(_damage);
         }
 
     }
@@ -90,7 +94,12 @@ public abstract class Unit : MonoBehaviour
         Fight?.Invoke();
     }
 
-    public void StartBattle()
+    //public void StartBattle()
+    //{
+    //    TargetSearching?.Invoke();
+    //}
+
+    public virtual void StartBattle()
     {
         TargetSearching?.Invoke();
     }
@@ -113,7 +122,7 @@ public abstract class Unit : MonoBehaviour
             float distanceToNearestTarget = float.MaxValue;
             for (int i = 0; i < _targets.Count; i++)
             {
-                if (_targets[i] is Policeman)
+                if (_targets[i] is Defender)
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
 

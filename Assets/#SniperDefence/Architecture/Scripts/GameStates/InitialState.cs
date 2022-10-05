@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class InitialState : IGameState
 {
+    private readonly UI _uI;
     private readonly Battle _battle;
 
-    public InitialState(Battle battle)
+    public InitialState(UI ui,Battle battle)
     {
+        _uI = ui;
         _battle = battle;
     }
 

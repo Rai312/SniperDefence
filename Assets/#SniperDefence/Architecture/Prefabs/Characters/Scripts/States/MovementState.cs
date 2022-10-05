@@ -11,17 +11,19 @@ public class MovementState : IUnitState
 
     public void Enter()
     {
-        //Debug.Log("Move - Enter");
+        //Debug.Log("Move - Enter - " + _unit);
         _unit.NavMeshAgent.enabled = true;
+        _unit.NavMeshAgent.speed = 3f;
         _unit.UnitAnimator.ShowRun();
         _unit.transform.LookAt(_unit.Target.transform.position);
     }
 
     public void Exit()
     {
-        //Debug.Log("Move - Exit");
+        //Debug.Log("Move - Exit - " + _unit);
         _unit.UnitAnimator.ResetTrigger();
-        _unit.NavMeshAgent.enabled = false;
+        //_unit.NavMeshAgent.enabled = false;
+        _unit.NavMeshAgent.speed = 0;
     }
 
     public void FixedUpdate()

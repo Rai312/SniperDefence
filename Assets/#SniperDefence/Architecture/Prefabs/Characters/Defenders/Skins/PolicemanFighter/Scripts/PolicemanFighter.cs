@@ -1,4 +1,4 @@
-public class PolicemanFighter : Unit
+public class PolicemanFighter : Defender
 {
 
 }

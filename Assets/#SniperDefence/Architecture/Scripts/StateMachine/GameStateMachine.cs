@@ -35,11 +35,11 @@ public class GameStateMachine : MonoBehaviour
     {
         _statesMap = new Dictionary<Type, IGameState>
         {
-            [typeof(InitialState)] = new InitialState(_battle),
-            [typeof(OpeningState)] = new OpeningState(),
-            [typeof(PlayState)] = new PlayState(),
-            [typeof(PauseState)] = new PauseState(),
-            [typeof(EndLevelState)] = new EndLevelState(),
+            [typeof(InitialState)] = new InitialState(_uI, _battle),
+            [typeof(OpeningState)] = new OpeningState(_uI),
+            [typeof(PlayState)] = new PlayState(_uI),
+            [typeof(PauseState)] = new PauseState(_uI),
+            [typeof(EndLevelState)] = new EndLevelState(_uI),
             [typeof(FailState)] = new FailState(_uI),
         };
     }

@@ -4,5 +4,14 @@ using UnityEngine;
 
 public class Enemy : Unit
 {
+    public override void StartBattle()
+    {
 
+        //base.StartBattle();
+    }
+
+    private void MoveToFinish()
+    {
+
+    }
 }

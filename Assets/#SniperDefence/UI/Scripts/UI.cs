@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private MainMenu _mainMenu;
+    [SerializeField] private PlayMenu _playMenu;
+    [SerializeField] private SniperMenu _sniperMenu;
+    [SerializeField] private SettingsMenu _settingMenu;
+    [SerializeField] private EndLevelMenu _endLevelMenu;
+    [SerializeField] private FailMenu _failMenu;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public MainMenu MainMenu => _mainMenu;
+    public PlayMenu PlayMenu => _playMenu;
+    public SniperMenu SniperMenu => _sniperMenu;
+    public SettingsMenu SettingsMenu => _settingMenu;
+    public EndLevelMenu EndLevelMenu => _endLevelMenu;
+    public FailMenu FailMenu => _failMenu;
 }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 915012286405972978}
   - component: {fileID: 915012286405972981}
   - component: {fileID: 915012286405972980}
-  - component: {fileID: 915012286405972983}
   - component: {fileID: 915012286405972969}
   - component: {fileID: 915012286405972968}
   - component: {fileID: 915012286405972982}
@@ -117,24 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedfef7d5a4960446a3393adc9a7fd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unit: {fileID: 915012286405972983}
---- !u!114 &915012286405972983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915012286405972970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba580c26c52756143aa31b032c562c9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unitAnimator: {fileID: 915012286405972968}
-  _navMeshAgent: {fileID: 915012286405972982}
-  _hitDistance: 1
-  _health: 100
-  _damage: 10
+  _unit: {fileID: 0}
 --- !u!95 &915012286405972969
 Animator:
   serializedVersion: 4
@@ -168,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 915012286405972969}
-  _unit: {fileID: 915012286405972983}
+  _unit: {fileID: 0}
 --- !u!195 &915012286405972982
 NavMeshAgent:
   m_ObjectHideFlags: 0

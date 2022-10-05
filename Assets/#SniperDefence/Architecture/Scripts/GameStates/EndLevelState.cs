@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EndLevelState : IGameState
 {
+    private readonly UI _uI;
+
+    public EndLevelState(UI ui)
+    {
+        _uI = ui;
+    }
+
     public void Enter()
     {
         throw new System.NotImplementedException();
