@@ -21,5 +21,6 @@ public class WaitingState : IUnitState
 
     public void FixedUpdate()
     {
+        _unit.CheckDistanceToEnemy();
     }
 }

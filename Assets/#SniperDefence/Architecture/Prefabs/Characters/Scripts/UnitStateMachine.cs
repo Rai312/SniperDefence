@@ -82,7 +82,7 @@ public class UnitStateMachine : MonoBehaviour
 
     private void SetStateByDefault()
     {
-        SetTargetSearchState();
+        SetWaitingState();
     }
 
     private void SetState(IUnitState newState)

@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedfef7d5a4960446a3393adc9a7fd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unit: {fileID: 0}
+  _unit: {fileID: 74532993288094471}
 --- !u!95 &915012286405972969
 Animator:
   serializedVersion: 4
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 915012286405972969}
-  _unit: {fileID: 0}
+  _unit: {fileID: 74532993288094471}
 --- !u!195 &915012286405972982
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   _unitAnimator: {fileID: 915012286405972968}
   _navMeshAgent: {fileID: 915012286405972982}
   _hitDistance: 2
+  _targetDistance: 50
   _health: 100
   _damage: 30
 --- !u!1 &7422751653736480483

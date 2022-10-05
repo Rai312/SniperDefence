@@ -7,11 +7,17 @@ public class Enemy : Unit
     public override void StartBattle()
     {
 
-        //base.StartBattle();
+        base.StartBattle();
     }
 
     private void MoveToFinish()
     {
 
+    }
+
+    public override void TrySetTarget()
+    {
+
+        base.TrySetTarget();
     }
 }

@@ -9,6 +9,7 @@ public abstract class Unit : MonoBehaviour
     [SerializeField] private UnitAnimator _unitAnimator;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private float _hitDistance;
+    [SerializeField] private float _targetDistance;
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
 
@@ -51,7 +52,7 @@ public abstract class Unit : MonoBehaviour
     //public abstract void SetAvatar();
 
 
-    public void SetTarget()
+    public virtual void TrySetTarget()
     {
         _target = FindTarget();
         if (_target == null)
@@ -101,7 +102,42 @@ public abstract class Unit : MonoBehaviour
 
     public virtual void StartBattle()
     {
-        TargetSearching?.Invoke();
+        Waiting?.Invoke();
+        //TargetSearching?.Invoke();
+    }
+
+    public void CheckDistanceToEnemy()
+    {
+        //Debug.Log("CheckDistanceToEnemy");
+        for (int i = 0; i < _targets.Count; i++)
+        {
+            if (this is Enemy)
+            {
+                if (_targets[i] is Defender)
+                {
+                    float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
+
+                    if (distanceToTarget < _targetDistance)
+                    {
+                        //Debug.Log("TargetSearchingEnemy");
+                        TargetSearching?.Invoke();
+                    }
+                }
+            }
+            else if (this is Defender)
+            {
+                if (_targets[i] is Enemy)
+                {
+                    float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
+
+                    if (distanceToTarget < _targetDistance)
+                    {
+                        //Debug.Log("TargetSearchingPolice");
+                        TargetSearching?.Invoke();
+                    }
+                }
+            }
+        }
     }
 
     public void SetDie()
@@ -122,7 +158,8 @@ public abstract class Unit : MonoBehaviour
             float distanceToNearestTarget = float.MaxValue;
             for (int i = 0; i < _targets.Count; i++)
             {
-                if (_targets[i] is Defender)
+                Debug.Log("EnemyFind");
+                if (_targets[i] is Defender && _targets[i].IsAlive)
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
 
@@ -141,7 +178,8 @@ public abstract class Unit : MonoBehaviour
             float distanceToNearestTarget = float.MaxValue;
             for (int i = 0; i < _targets.Count; i++)
             {
-                if (_targets[i] is Enemy)
+                Debug.Log("PoliceFind");
+                if (_targets[i] is Enemy && _targets[i].IsAlive)
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
 

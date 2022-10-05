@@ -11,7 +11,7 @@ public class TargetSearchState : IUnitState
 
     public void Enter()
     {
-        _unit.SetTarget();
+        _unit.TrySetTarget();
     }
 
     public void Exit()
