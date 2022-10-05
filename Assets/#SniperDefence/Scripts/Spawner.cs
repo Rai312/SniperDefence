@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -26,7 +27,7 @@ public class Spawner : MonoBehaviour
         _buttonSelectionLogic.ButtonSelected -= ChooseSpawnUnit;
     }
 
-    public Unit GetSpawnedUnit()
+    public Unit GetSpawnedUnit(List<Unit> units)
     {
         if (_spawnedUnit != null)
             return _spawnedUnit;

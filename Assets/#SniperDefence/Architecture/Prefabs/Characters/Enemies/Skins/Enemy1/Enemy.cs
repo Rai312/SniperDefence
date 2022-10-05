@@ -26,6 +26,12 @@ public class Enemy : Unit
         NavMeshAgent.SetDestination(_finishPoint.transform.position);
     }
 
+    //public override void OnTargetDied()
+    //{
+    //    //Debug.Log("OnTargetDied");
+    //    //MoveToFinish();
+    //}
+
     public override void TrySetTarget()
     {
 

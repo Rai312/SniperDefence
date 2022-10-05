@@ -614,6 +614,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1529365637}
     m_Modifications:
+    - target: {fileID: 74532993288094471, guid: 2d86067ee4b7e4e41acf35092125e90c, type: 3}
+      propertyPath: _damage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 915012286405972970, guid: 2d86067ee4b7e4e41acf35092125e90c, type: 3}
       propertyPath: m_Name
       value: Policeman (2)

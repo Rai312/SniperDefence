@@ -49,9 +49,6 @@ public abstract class Unit : MonoBehaviour
             _target.Died -= OnTargetDied;
     }
 
-    //public abstract void SetAvatar();
-
-
     public virtual void TrySetTarget()
     {
         _target = FindTarget();
@@ -158,7 +155,7 @@ public abstract class Unit : MonoBehaviour
             float distanceToNearestTarget = float.MaxValue;
             for (int i = 0; i < _targets.Count; i++)
             {
-                Debug.Log("EnemyFind");
+                //Debug.Log("EnemyFind");
                 if (_targets[i] is Defender && _targets[i].IsAlive)
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
@@ -178,7 +175,7 @@ public abstract class Unit : MonoBehaviour
             float distanceToNearestTarget = float.MaxValue;
             for (int i = 0; i < _targets.Count; i++)
             {
-                Debug.Log("PoliceFind");
+                //Debug.Log("PoliceFind");
                 if (_targets[i] is Enemy && _targets[i].IsAlive)
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
@@ -194,7 +191,7 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    private void OnTargetDied()
+    public virtual void OnTargetDied()
     {
         _target.Died -= OnTargetDied;
         TargetSearching?.Invoke();
