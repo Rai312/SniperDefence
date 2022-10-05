@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 
-public class Sniper : MonoBehaviour, IShotable
+public class Sniper : MonoBehaviour
 {
   [SerializeField] private OpticalSight _opticalSight;
+  [SerializeField] private Bullet _bulletPrefab;
+  [SerializeField] private Camera _camera;
 
   private void OnEnable()
   {
@@ -14,12 +16,9 @@ public class Sniper : MonoBehaviour, IShotable
     _opticalSight.SightIsReleased -= Shoot;
   }
 
-  public void Shoot()
+  private void Shoot()
   {
+    Bullet bullet = Instantiate(_bulletPrefab, _camera.transform.position, Quaternion.identity, null);
+    bullet.Move();
   }
-}
-
-public interface IShotable
-{
-  void Shoot();
 }

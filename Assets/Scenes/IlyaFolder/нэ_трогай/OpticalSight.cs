@@ -24,7 +24,7 @@ public class OpticalSight : MonoBehaviour
   {
     EnableSight();
   }
-  
+
   public void EnableSight()
   {
     if (Input.touchCount > 0)
@@ -38,11 +38,19 @@ public class OpticalSight : MonoBehaviour
 
       if (Input.GetTouch(0).phase == TouchPhase.Ended)
       {
-        _sight.SetActive(false);
-        _targetZoom = _maximuFov;
-        _camera.DOFieldOfView(_maximuFov, _duration);
-        SightIsReleased?.Invoke();
+        StartCoroutine(Hide());
       }
     }
+  }
+
+  private IEnumerator Hide()
+  {
+    SightIsReleased?.Invoke();
+    float delay = 0.8f;
+    WaitForSeconds waitForSeconds = new WaitForSeconds(delay);
+    yield return waitForSeconds;
+    _sight.SetActive(false);
+    _targetZoom = _maximuFov;
+    _camera.DOFieldOfView(_maximuFov, _duration);
   }
 }
