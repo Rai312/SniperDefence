@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameStateMachine : MonoBehaviour
 {
     [SerializeField] private UI _uI;
+    [SerializeField] private CameraController _cameraController;
+    [SerializeField] private Sniper _sniper;
     [SerializeField] private Battle _battle;
     [SerializeField] private Spawner _spawner;
 
@@ -38,6 +40,7 @@ public class GameStateMachine : MonoBehaviour
             [typeof(InitialState)] = new InitialState(_uI, _battle),
             [typeof(OpeningState)] = new OpeningState(_uI),
             [typeof(PlayState)] = new PlayState(_uI),
+            [typeof(SniperShootingState)] = new SniperShootingState(_uI, _cameraController, _sniper),
             [typeof(PauseState)] = new PauseState(_uI),
             [typeof(EndLevelState)] = new EndLevelState(_uI),
             [typeof(FailState)] = new FailState(_uI),
@@ -79,10 +82,15 @@ public class GameStateMachine : MonoBehaviour
         var state = GetState<FailState>();
         SetState(state);
     }
+    private void SetSniperShootingState()
+    {
+        var state = GetState<SniperShootingState>();
+        SetState(state);
+    }
 
     private void SetStateByDefault()
     {
-        SetInitialState();
+        SetSniperShootingState();
     }
 
     private void SetState(IGameState newState)

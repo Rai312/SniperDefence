@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -12,32 +13,36 @@ public class OpticalSight : MonoBehaviour
   private float _targetZoom;
   private float _duration = 1f;
 
+  public event Action SightIsReleased;
+
   private void Awake()
   {
     _camera = GetComponent<Camera>();
   }
 
-  void Update()
+  private void Update()
   {
-    if (Input.GetKeyDown(KeyCode.Z))
+    EnableSight();
+  }
+  
+  public void EnableSight()
+  {
+    if (Input.touchCount > 0)
     {
-      Show();
+      if (Input.GetTouch(0).phase == TouchPhase.Began)
+      {
+        _sight.SetActive(true);
+        _targetZoom = _maximuFov - _startZoom;
+        _camera.DOFieldOfView(_targetZoom, _duration);
+      }
+
+      if (Input.GetTouch(0).phase == TouchPhase.Ended)
+      {
+        _sight.SetActive(false);
+        _targetZoom = _maximuFov;
+        _camera.DOFieldOfView(_maximuFov, _duration);
+        SightIsReleased?.Invoke();
+      }
     }
-    else if (Input.GetKeyDown(KeyCode.X))
-      Hide();
-  }
-
-  private void Show()
-  {
-    _sight.SetActive(true);
-    _targetZoom = _maximuFov - _startZoom;
-    _camera.DOFieldOfView(_targetZoom, _duration);
-  }
-
-  private void Hide()
-  {
-    _sight.SetActive(false);
-    _targetZoom = _maximuFov;
-    _camera.DOFieldOfView(_maximuFov, _duration);
   }
 }
