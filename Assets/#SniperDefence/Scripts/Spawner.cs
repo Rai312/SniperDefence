@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,8 +15,10 @@ public class Spawner : MonoBehaviour
     private Collider[] _colliders;
     private float _rayDistance = 1000f;
     private float _radius = 6f;
-    private Unit _activeDefender;
-    private Unit _spawnedUnit;
+    private Defender _activeDefender;
+    private Defender _spawnedUnit;
+
+    public event Action<Defender> Spawned;
 
     private void OnEnable()
     {
@@ -35,7 +38,7 @@ public class Spawner : MonoBehaviour
         return null;
     }
 
-    private void ChooseSpawnUnit(Unit defender)
+    private void ChooseSpawnUnit(Defender defender)
     {
         _activeDefender = defender;
     }
@@ -74,7 +77,11 @@ public class Spawner : MonoBehaviour
         if (Physics.Raycast(ray, out hit, _rayDistance, _raycastMask))
         {
             if (CanSpawn(hit.point))
+            {
                 _spawnedUnit = Instantiate(_activeDefender, (hit.point + offsets), Quaternion.identity, null);
+                
+                Spawned?.Invoke(_spawnedUnit);
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ public class TargetSearchState : IUnitState
 
     public void Enter()
     {
-        Debug.Log("TargetSearchState - Enter - " + _unit);
+        //Debug.Log("TargetSearchState - Enter - " + _unit);
         //if (_unit is Defender)
         //{
         //    _unit.TrySetTarget();
@@ -21,7 +21,7 @@ public class TargetSearchState : IUnitState
 
     public void Exit()
     {
-        Debug.Log("TargetSearchState - Exit - " + _unit);
+        //Debug.Log("TargetSearchState - Exit - " + _unit);
     }
 
     public void FixedUpdate()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class BuyButton : MonoBehaviour
 {
-  [field: SerializeField] public Unit DefenderPrefab { get; private set; }
+  [field: SerializeField] public Defender DefenderPrefab { get; private set; }
 
   public event Action<BuyButton> ButtonClick;
 

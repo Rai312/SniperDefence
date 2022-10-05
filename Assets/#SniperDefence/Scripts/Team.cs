@@ -7,7 +7,11 @@ public abstract class Team : MonoBehaviour
 
     public IReadOnlyList<Unit> Units => _units;
 
-    //public void AddSpawned
+    public void AddSpawned(Unit unit)
+    {
+        Debug.Log("AddSpawned");
+        _units.Add(unit);
+    }
 
     public bool CheckLose()
     {

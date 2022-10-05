@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Battle : MonoBehaviour
 {
-    [SerializeField] private Team _teamPlayer;
+    [SerializeField] private Team _teamDefender;
     [SerializeField] private Team _teamEnemy;
 
     //[SerializeField] private Text _drawMessage;
@@ -18,7 +18,7 @@ public class Battle : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (var unit in _teamPlayer.Units)
+        foreach (var unit in _teamDefender.Units)
         {
             unit.Died -= CheckWin;
         }
@@ -31,7 +31,7 @@ public class Battle : MonoBehaviour
 
     public void StartBattle()
     {
-        foreach (var unit in _teamPlayer.Units)
+        foreach (var unit in _teamDefender.Units)
         {
             unit.StartBattle();
         }
@@ -44,7 +44,7 @@ public class Battle : MonoBehaviour
 
     private void Initialization()
     {
-        foreach (var unit in _teamPlayer.Units)
+        foreach (var unit in _teamDefender.Units)
         {
             unit.Initialize(_teamEnemy.Units);
             unit.Died += CheckWin;
@@ -52,14 +52,14 @@ public class Battle : MonoBehaviour
 
         foreach (var unit in _teamEnemy.Units)
         {
-            unit.Initialize(_teamPlayer.Units);
+            unit.Initialize(_teamDefender.Units);
             unit.Died += CheckWin;
         }
     }
 
     private void CheckWin()
     {
-        bool firstTeamResult = _teamPlayer.CheckLose();
+        bool firstTeamResult = _teamDefender.CheckLose();
         bool secondTeamResult = _teamEnemy.CheckLose();
 
         //if (firstTeamResult && secondTeamResult)

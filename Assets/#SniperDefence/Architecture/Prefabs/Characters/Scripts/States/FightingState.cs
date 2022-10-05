@@ -12,7 +12,7 @@ public class FightingState : IUnitState
 
     public void Enter()
     {
-        Debug.Log("Fighting - Enter - " + _unit);
+        //Debug.Log("Fighting - Enter - " + _unit);
         _timeToAttack = 0.2f;
         _unit.transform.LookAt(_unit.Target.transform.position);
         _unit.UnitAnimator.ShowAttack();
@@ -21,7 +21,7 @@ public class FightingState : IUnitState
     public void Exit()
     {
         _unit.UnitAnimator.ResetTrigger();
-        Debug.Log("Fighting - Exit - " + _unit);
+        //Debug.Log("Fighting - Exit - " + _unit);
     }
 
     public void FixedUpdate()

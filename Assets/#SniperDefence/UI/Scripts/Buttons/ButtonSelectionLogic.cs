@@ -7,7 +7,7 @@ public class ButtonSelectionLogic : MonoBehaviour
   private Vector3 targetScale = new Vector3(1.1f, 1.1f, 1.1f);
   private BuyButton[] _buyButtons;
 
-  public event Action<Unit> ButtonSelected;
+  public event Action<Defender> ButtonSelected;
 
   private void Awake()
   {
@@ -34,7 +34,7 @@ public class ButtonSelectionLogic : MonoBehaviour
   {
     ChangeScaleAnimation(targetScale, buyButton);
     DisableButtonSelection(buyButton);
-    Unit activeDefender = buyButton.DefenderPrefab;
+    Defender activeDefender = buyButton.DefenderPrefab;
     ButtonSelected?.Invoke(activeDefender);
   }
 
