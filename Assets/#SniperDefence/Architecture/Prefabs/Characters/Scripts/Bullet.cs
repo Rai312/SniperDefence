@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class Bullet : MonoBehaviour
   private void Awake()
   {
     _rigidbody = GetComponent<Rigidbody>();
+  }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    print("попал");
+    
+    if(other.gameObject.TryGetComponent(out Unit unit))
+      unit.gameObject.SetActive(false);
   }
 
   public void Move()

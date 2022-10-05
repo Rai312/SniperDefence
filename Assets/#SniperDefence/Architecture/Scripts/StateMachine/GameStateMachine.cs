@@ -12,7 +12,6 @@ public class GameStateMachine : MonoBehaviour
     [SerializeField] private TeamDefender _teamDefender;
     [SerializeField] private TeamEnemy _teamEnemy;
     
-
     private Dictionary<Type, IGameState> _statesMap;
     private IGameState _currentState;
 
@@ -23,12 +22,14 @@ public class GameStateMachine : MonoBehaviour
 
     private void OnEnable()
     {
-        //тут на все подписываемся
+        _uI.MainMenu.StartButton.onClick.AddListener(SetPlayState);
+        _uI.SniperMenu.StartButton.onClick.AddListener(SetSniperShootingState);
     }
 
     private void OnDisable()
     {
-        //тут от всего отписываемся
+        _uI.MainMenu.StartButton.onClick.RemoveListener(SetPlayState);
+        _uI.SniperMenu.StartButton.onClick.RemoveListener(SetSniperShootingState);
     }
 
     private void Start()
@@ -43,7 +44,7 @@ public class GameStateMachine : MonoBehaviour
             [typeof(InitialState)] = new InitialState(_uI, _battle),
             [typeof(OpeningState)] = new OpeningState(_uI),
             [typeof(PlayState)] = new PlayState(_uI, _spawner, _teamEnemy, _teamDefender),
-            [typeof(SniperShootingState)] = new SniperShootingState(_uI, _cameraController, _sniper),
+            [typeof(SniperShootingState)] = new SniperShootingState(_uI, _cameraController, _sniper, _spawner),
             [typeof(PauseState)] = new PauseState(_uI),
             [typeof(EndLevelState)] = new EndLevelState(_uI),
             [typeof(FailState)] = new FailState(_uI),
@@ -94,7 +95,6 @@ public class GameStateMachine : MonoBehaviour
     private void SetStateByDefault()
     {
         SetPlayState();
-        //SetSniperShootingState();
     }
 
     private void SetState(IGameState newState)

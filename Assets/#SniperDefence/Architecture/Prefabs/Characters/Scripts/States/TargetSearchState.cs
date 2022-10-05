@@ -13,7 +13,7 @@ public class TargetSearchState : IUnitState
     {
         if (_unit is Enemy)
         {
-            Debug.Log("TargetSearchState - Enter - " + _unit);
+         //   Debug.Log("TargetSearchState - Enter - " + _unit);
         }
 
         //if (_unit is Defender)
@@ -27,7 +27,7 @@ public class TargetSearchState : IUnitState
     {
         if (_unit is Enemy)
         {
-            Debug.Log("TargetSearchState - Exit - " + _unit);
+     //       Debug.Log("TargetSearchState - Exit - " + _unit);
         }
     }
 

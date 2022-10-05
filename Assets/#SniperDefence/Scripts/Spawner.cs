@@ -78,7 +78,7 @@ public class Spawner : MonoBehaviour
         {
             if (CanSpawn(hit.point))
             {
-                _spawnedUnit = Instantiate(_activeDefender, (hit.point + offsets), Quaternion.identity, null);
+                _spawnedUnit = Instantiate(_activeDefender, (hit.point), Quaternion.identity, null);
                 
                 Spawned?.Invoke(_spawnedUnit);
             }

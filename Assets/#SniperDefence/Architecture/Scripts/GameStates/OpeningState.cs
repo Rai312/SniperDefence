@@ -13,11 +13,13 @@ public class OpeningState : IGameState
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        _uI.MainMenu.Show();
+        Debug.Log("Opening State - Enter");
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        _uI.MainMenu.Hide();
+        Debug.Log("Opening State - Exit");
     }
 }

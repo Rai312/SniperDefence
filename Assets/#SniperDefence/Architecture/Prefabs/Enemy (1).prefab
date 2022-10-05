@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9111873637770580565}
   - component: {fileID: 2303478242179172423}
   - component: {fileID: 2700644278469721641}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.7
-  m_Speed: 3.5
+  m_Speed: 2.25
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

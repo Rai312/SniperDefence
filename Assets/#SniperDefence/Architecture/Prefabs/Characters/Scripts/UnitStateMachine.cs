@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UnitStateMachine : MonoBehaviour
@@ -42,12 +43,19 @@ public class UnitStateMachine : MonoBehaviour
     {
         _statesMap = new Dictionary<Type, IUnitState>()
         {
+            [typeof(StartState)] = new StartState(),
             [typeof(WaitingState)] = new WaitingState(_unit),
             [typeof(TargetSearchState)] = new TargetSearchState(_unit),
             [typeof(MovementState)] = new MovementState(_unit),
             [typeof(FightingState)] = new FightingState(_unit),
             [typeof(DiedState)] = new DiedState(_unit)
         };
+    }
+    
+    public void SetStartState()
+    {
+        var state = GetState<StartState>();
+        SetState(state);
     }
 
     public void SetWaitingState()
@@ -83,7 +91,7 @@ public class UnitStateMachine : MonoBehaviour
     private void SetStateByDefault()
     {
         SetWaitingState();
-        //SetTargetSearchState();
+        // SetWaitingState();
     }
 
     private void SetState(IUnitState newState)

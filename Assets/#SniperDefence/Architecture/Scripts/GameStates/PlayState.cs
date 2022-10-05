@@ -20,15 +20,24 @@ public class PlayState : IGameState
 
     public void Enter()
     {
-        //Debug.Log("PlayState - Enter");
+        Debug.Log("PlayState - Enter");
+        _uI.PlayMenu.Show();
+        
+        for (int i = 0; i < _teamEnemy.Units.Count; i++)
+        {
+            _teamEnemy.Units[i].SetWaiting();
+        }
+        
         _spawner.Spawned += OnSpawned;
     }
 
     public void Exit()
     {
-        //Debug.Log("PlayState - Exit");
+        _uI.PlayMenu.Hide();
+        Debug.Log("PlayState - Exit");
         _spawner.Spawned -= OnSpawned;
     }
+
 
     private void OnSpawned(Defender defender)
     {
