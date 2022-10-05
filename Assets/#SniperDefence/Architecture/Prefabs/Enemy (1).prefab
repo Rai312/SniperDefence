@@ -230,9 +230,10 @@ MonoBehaviour:
   _unitAnimator: {fileID: 3236169421309469695}
   _navMeshAgent: {fileID: 3236169421309469694}
   _hitDistance: 1.25
-  _targetDistance: 20
+  _targetDistance: 3
   _health: 100
   _damage: 30
+  _containerFinishPoints: {fileID: 0}
 --- !u!95 &3236169421309469688
 Animator:
   serializedVersion: 4
