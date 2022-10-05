@@ -93,8 +93,8 @@ public class GameStateMachine : MonoBehaviour
 
     private void SetStateByDefault()
     {
-        //SetPlayState();
-        SetSniperShootingState();
+        SetPlayState();
+        //SetSniperShootingState();
     }
 
     private void SetState(IGameState newState)

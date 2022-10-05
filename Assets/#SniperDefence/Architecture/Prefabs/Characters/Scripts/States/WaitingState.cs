@@ -11,7 +11,10 @@ public class WaitingState : IUnitState
 
     public void Enter()
     {
-        //Debug.Log("WaitingState - Enter - " + _unit);
+        if (_unit is Enemy)
+        {
+            Debug.Log("WaitingState - Enter - " + _unit);
+        }
         _unit.UnitAnimator.ShowIdle();
         if (_unit is Enemy)
         {
@@ -22,7 +25,10 @@ public class WaitingState : IUnitState
 
     public void Exit()
     {
-        //Debug.Log("WaitingState - Exit - " + _unit);
+        if (_unit is Enemy)
+        {
+            Debug.Log("WaitingState - Exit - " + _unit);
+        }
         _unit.UnitAnimator.ResetTrigger();
     }
 

@@ -12,7 +12,14 @@ public class Enemy : Unit
     private void Awake()
     {
         _finishPoints = _containerFinishPoints.GetComponentsInChildren<FinishPoint>();
-        _finishPoint = _finishPoints[0];
+        int randomIndex = Random.Range(0, _finishPoints.Length);
+        //Debug.Log(randomIndex);
+        _finishPoint = _finishPoints[randomIndex];
+    }
+
+    private void Start()
+    {
+        
     }
 
     public override void StartBattle()

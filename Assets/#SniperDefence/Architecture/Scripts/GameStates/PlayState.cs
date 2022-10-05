@@ -20,13 +20,13 @@ public class PlayState : IGameState
 
     public void Enter()
     {
-        Debug.Log("PlayState - Enter");
+        //Debug.Log("PlayState - Enter");
         _spawner.Spawned += OnSpawned;
     }
 
     public void Exit()
     {
-        Debug.Log("PlayState - Exit");
+        //Debug.Log("PlayState - Exit");
         _spawner.Spawned -= OnSpawned;
     }
 
