@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -6,16 +7,20 @@ public class OpticalSight : MonoBehaviour
 {
   [SerializeField] private float _startZoom;
   [SerializeField] private GameObject _sight;
-  
+
   private Camera _camera;
   private float _maximuFov = 60;
   private float _duration = 0.5f;
   private float _targetFieldOfView = 41;
   private float _targetZoom;
   private Tween _fieldFovAnimation;
+  private float _elapsedTime;
+  private float _timeBetweenShoot = 1.5f;
+  private Sequence _shootAnimation;
+  private bool _isWork = true;
 
   private bool _canShoot => _camera.fieldOfView < _targetFieldOfView;
-  
+
   public event Action SightIsReleased;
 
   private void Awake()
@@ -25,6 +30,8 @@ public class OpticalSight : MonoBehaviour
 
   private void Update()
   {
+    _elapsedTime += Time.deltaTime;
+
     EnableSight();
   }
 
@@ -34,6 +41,7 @@ public class OpticalSight : MonoBehaviour
     {
       if (Input.GetTouch(0).phase == TouchPhase.Began)
       {
+        _elapsedTime = 0;
         _sight.SetActive(true);
         _targetZoom = _maximuFov - _startZoom;
         _fieldFovAnimation = _camera.DOFieldOfView(_targetZoom, _duration);
@@ -41,9 +49,19 @@ public class OpticalSight : MonoBehaviour
 
       if (Input.GetTouch(0).phase == TouchPhase.Ended)
       {
-        _fieldFovAnimation.Kill();
-        Hide();
+        if (_canShoot == true && _isWork == true)
+          Shoot();
+        else
+        {
+          _fieldFovAnimation.Kill();
+          Hide();
+        }
       }
+    }
+    else
+    {
+      if (_elapsedTime > _timeBetweenShoot)
+        Hide();
     }
   }
 
@@ -52,8 +70,35 @@ public class OpticalSight : MonoBehaviour
     _sight.SetActive(false);
     _targetZoom = _maximuFov;
     _camera.DOFieldOfView(_maximuFov, _duration);
+  }
 
-    if (_canShoot)
-      SightIsReleased?.Invoke();
+  private void Shoot()
+  {
+    SightIsReleased?.Invoke();
+    StartCoroutine(ShootAnimation());
+  }
+
+  private IEnumerator ShootAnimation()
+  {
+    float xOffset = 5;
+    float duration = 0.2f;
+    float multiplier = 2f;
+
+    _shootAnimation = DOTween.Sequence();
+    _isWork = false;
+
+    _shootAnimation
+      .Append(_camera.transform.DOLocalRotate(GetRotation(-xOffset), duration, RotateMode.LocalAxisAdd))
+      .Append(_camera.transform.DOLocalRotate(GetRotation(xOffset), duration * multiplier, RotateMode.LocalAxisAdd));
+
+    yield return _shootAnimation.WaitForCompletion();
+    _isWork = true;
+  }
+
+  private Vector3 GetRotation(float xOffset)
+  {
+    float zeroAngle = 0;
+
+    return new Vector3(xOffset, zeroAngle, zeroAngle);
   }
 }
