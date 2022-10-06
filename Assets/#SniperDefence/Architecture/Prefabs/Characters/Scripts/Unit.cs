@@ -12,6 +12,7 @@ public abstract class Unit : MonoBehaviour
     [SerializeField] private float _targetDistance;
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
+    [SerializeField] private ParticleSystem _deathParticle;
 
     private int _currentHealth;
     private IReadOnlyList<Unit> _targets;
@@ -19,6 +20,7 @@ public abstract class Unit : MonoBehaviour
 
     public bool IsAlive { get; private set; }
     public float HitDistance => _hitDistance;
+    public ParticleSystem DeathParticle => _deathParticle;
     public UnitAnimator UnitAnimator => _unitAnimator;
     public Unit Target => _target;
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
@@ -68,6 +70,8 @@ public abstract class Unit : MonoBehaviour
         else
         {
             IsAlive = false;
+            _deathParticle.Play();
+            
             if (_target != null)
                 _target.Died -= OnTargetDied;
 

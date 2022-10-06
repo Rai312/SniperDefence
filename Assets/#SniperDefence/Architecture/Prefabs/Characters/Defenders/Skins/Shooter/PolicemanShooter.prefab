@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1189741937666231213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4701697199213745069}
@@ -118,8 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitAnimator: {fileID: -713559637095139524}
   _navMeshAgent: {fileID: -3376321710966891344}
-  _hitDistance: 10
-  _targetDistance: 15
+  _hitDistance: 20
+  _targetDistance: 20
   _health: 100
   _damage: 50
   _bulletPrefab: {fileID: 517875665828562528, guid: 35084f6562860b94ca7bcc16a6333e9d, type: 3}

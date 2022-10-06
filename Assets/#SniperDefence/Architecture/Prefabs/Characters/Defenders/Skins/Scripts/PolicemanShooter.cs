@@ -12,7 +12,7 @@ public class PolicemanShooter : Defender
     private void Shoot()
     {
         Bullet bullet = Instantiate(_bulletPrefab, _shootPoint.transform.position, Quaternion.identity, null);
-        bullet.transform.DOMove(Target.transform.position, 2f);
+        bullet.transform.DOMove(Target.transform.position, 0.5f).SetEase(Ease.Linear);
     }
 
     public override void HitTarget()

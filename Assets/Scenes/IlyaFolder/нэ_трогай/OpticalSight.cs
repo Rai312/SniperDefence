@@ -12,7 +12,7 @@ public class OpticalSight : MonoBehaviour
   private float _duration = 0.5f;
   private float _targetFieldOfView = 41;
   private float _targetZoom;
-  private Tween _fieldFovAnimation1;
+  private Tween _fieldFovAnimation;
 
   private bool _canShoot => _camera.fieldOfView < _targetFieldOfView;
   
@@ -36,12 +36,12 @@ public class OpticalSight : MonoBehaviour
       {
         _sight.SetActive(true);
         _targetZoom = _maximuFov - _startZoom;
-        _fieldFovAnimation1 = _camera.DOFieldOfView(_targetZoom, _duration);
+        _fieldFovAnimation = _camera.DOFieldOfView(_targetZoom, _duration);
       }
 
       if (Input.GetTouch(0).phase == TouchPhase.Ended)
       {
-        _fieldFovAnimation1.Kill();
+        _fieldFovAnimation.Kill();
         Hide();
       }
     }

@@ -15,8 +15,8 @@ public class DiedState : IUnitState
         //{
         //    Debug.Log("DieState - Enter" + this);
         //}
-
-        _unit.gameObject.SetActive(false);
+        //_unit.DeathParticle.Play();
+           _unit.gameObject.SetActive(false);
     }
 
     public void Exit()
