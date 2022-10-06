@@ -13,7 +13,7 @@ public class WaitingState : IUnitState
     {
         if (_unit is Enemy)
         {
-           Debug.Log("WaitingState - Enter - " + _unit);
+            Debug.Log("WaitingState - Enter - " + _unit);
         }
         _unit.UnitAnimator.ShowIdle();
         if (_unit is Enemy)
@@ -34,6 +34,7 @@ public class WaitingState : IUnitState
 
     public void FixedUpdate()
     {
+
         _unit.CheckDistanceToEnemy();
     }
 }

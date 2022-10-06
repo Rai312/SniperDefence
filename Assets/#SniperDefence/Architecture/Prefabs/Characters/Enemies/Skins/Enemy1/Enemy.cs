@@ -17,31 +17,8 @@ public class Enemy : Unit
         _finishPoint = _finishPoints[randomIndex];
     }
 
-    private void Start()
-    {
-        
-    }
-
-    public override void StartBattle()
-    {
-
-        base.StartBattle();
-    }
-
     public void MoveToFinish()
     {
         NavMeshAgent.SetDestination(_finishPoint.transform.position);
-    }
-
-    //public override void OnTargetDied()
-    //{
-    //    //Debug.Log("OnTargetDied");
-    //    //MoveToFinish();
-    //}
-
-    public override void TrySetTarget()
-    {
-
-        base.TrySetTarget();
     }
 }

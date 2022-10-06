@@ -13,7 +13,7 @@ public class Battle : MonoBehaviour
 
     private void Awake()
     {
-        Initialization();
+        InitializeEnemies();
     }
 
     private void OnDestroy()
@@ -41,19 +41,24 @@ public class Battle : MonoBehaviour
     //        unit.StartBattle();
     //    }
     //}
-
-    public void Initialization()
+    public void InitializeDefenders()
     {
         foreach (var unit in _teamDefender.Units)
         {
             unit.Initialize(_teamEnemy.Units);
             unit.Died += CheckWin;
+            //Debug.Log("InitializeDefenders");
         }
+    }
+
+    public void InitializeEnemies()
+    {
 
         foreach (var unit in _teamEnemy.Units)
         {
             unit.Initialize(_teamDefender.Units);
             unit.Died += CheckWin;
+
         }
     }
 
@@ -62,6 +67,7 @@ public class Battle : MonoBehaviour
         bool firstTeamResult = _teamDefender.CheckLose();
         bool secondTeamResult = _teamEnemy.CheckLose();
 
+        Debug.Log("CheckWin");
         //if (firstTeamResult && secondTeamResult)
         //{
         //    _drawMessage.gameObject.SetActive(true);

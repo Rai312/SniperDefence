@@ -21,7 +21,7 @@ public class InitialState : IGameState
         _spawner.Initialize();
         _uI.OpeningMenu.Show();
         //_battle.StartBattle();
-        _battle.Initialization();
+        _battle.InitializeEnemies();
     }
 
     public void Exit()

@@ -11,10 +11,10 @@ public class TargetSearchState : IUnitState
 
     public void Enter()
     {
-        if (_unit is Enemy)
-        {
-            Debug.Log("TargetSearchState - Enter - " + _unit);
-        }
+        //if (_unit is Enemy)
+        //{
+        //    Debug.Log("TargetSearchState - Enter - " + _unit);
+        //}
 
         //if (_unit is Defender)
         //{
@@ -25,10 +25,10 @@ public class TargetSearchState : IUnitState
 
     public void Exit()
     {
-        if (_unit is Enemy)
-        {
-            Debug.Log("TargetSearchState - Exit - " + _unit);
-        }
+        //if (_unit is Enemy)
+        //{
+        //    Debug.Log("TargetSearchState - Exit - " + _unit);
+        //}
     }
 
     public void FixedUpdate()

@@ -49,9 +49,9 @@ public abstract class Unit : MonoBehaviour
             _target.Died -= OnTargetDied;
     }
 
-    public virtual void TrySetTarget()
+    public void TrySetTarget()
     {
-        _target = FindTarget();
+        _target = GetTarget();
         if (_target == null)
         {
             Waiting?.Invoke();
@@ -61,7 +61,7 @@ public abstract class Unit : MonoBehaviour
         TargetAssigned?.Invoke();
     }
 
-    public void ApplyDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (damage < _currentHealth)
             _currentHealth -= damage;
@@ -80,9 +80,12 @@ public abstract class Unit : MonoBehaviour
         if (_target != null)
         {
             if (_target.Health <= 0)
-                TargetAssigned?.Invoke();
+            {
+                //TargetAssigned?.Invoke();
+                Waiting.Invoke();
+            }
             else
-                _target.ApplyDamage(_damage);
+                _target.TakeDamage(_damage);
         }
 
     }
@@ -90,11 +93,6 @@ public abstract class Unit : MonoBehaviour
     public void StartFighting()
     {
         Fight?.Invoke();
-    }
-
-    public virtual void StartBattle()
-    {
-        Waiting?.Invoke();
     }
 
     public void CheckDistanceToEnemy()
@@ -145,7 +143,7 @@ public abstract class Unit : MonoBehaviour
         Waiting?.Invoke();
     }
 
-    private Unit FindTarget()//DUPLICATE
+    private Unit GetTarget()//DUPLICATE
     {
         if (this is Enemy)
         {

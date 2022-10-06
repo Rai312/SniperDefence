@@ -13,7 +13,7 @@ public class StartState : IUnitState
   {
         if (_unit is Enemy)
         {
-            Debug.Log("StartState - Enter - " + _unit);
+            //Debug.Log("StartState - Enter - " + _unit);
         }
     }
 
@@ -21,8 +21,7 @@ public class StartState : IUnitState
   {
         if (_unit is Enemy)
         {
-
-            Debug.Log("StartState - Exit - " + _unit);
+            //Debug.Log("StartState - Exit - " + _unit);
         }
   }
 

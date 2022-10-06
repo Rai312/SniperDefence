@@ -6,13 +6,15 @@ public class PlayState : IGameState
     private readonly Spawner _spawner;
     private readonly TeamEnemy _teamEnemy;
     private readonly TeamDefender _teamDefender;
+    private readonly Battle _battle;
 
-    public PlayState(UI uI, Spawner spawner, TeamEnemy teamEnemy, TeamDefender teamDefender)
+    public PlayState(UI uI, Spawner spawner, TeamEnemy teamEnemy, TeamDefender teamDefender, Battle battle)
     {
         _uI = uI;
         _spawner = spawner;
         _teamEnemy = teamEnemy;
         _teamDefender = teamDefender;
+        _battle = battle;
     }
 
     public void Enter()
@@ -30,6 +32,7 @@ public class PlayState : IGameState
         //Debug.Log("PlayState - Exit");
         _spawner.Spawned -= OnSpawned;
         _spawner.Disable();
+        _battle.InitializeDefenders();
     }
 
 
