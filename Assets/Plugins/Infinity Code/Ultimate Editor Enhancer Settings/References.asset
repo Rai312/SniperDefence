@@ -176,10 +176,12 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
-  - name: IlyaScene!!!
-    path: Assets/Scenes/IlyaScene!!!.unity
+  - name: Max2 1
+    path: Assets/Scenes/Max/Max2 1.unity
   - name: Max2
     path: Assets/Scenes/Max/Max2.unity
+  - name: IlyaScene!!!
+    path: Assets/Scenes/IlyaScene!!!.unity
   - name: MaxScene!!!
     path: Assets/Scenes/Max/MaxScene!!!.unity
   - name: SampleScene 1

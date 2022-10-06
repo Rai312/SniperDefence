@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -7,15 +6,16 @@ public class OpticalSight : MonoBehaviour
 {
   [SerializeField] private float _startZoom;
   [SerializeField] private GameObject _sight;
-
+  
   private Camera _camera;
   private float _maximuFov = 60;
+  private float _duration = 0.5f;
+  private float _targetFieldOfView = 41;
   private float _targetZoom;
-  private float _duration = 1f;
   private Tween _fieldFovAnimation1;
-  private Tween _fieldFovAnimation2;
-  private bool _canShoot = false;
 
+  private bool _canShoot => _camera.fieldOfView < _targetFieldOfView;
+  
   public event Action SightIsReleased;
 
   private void Awake()
@@ -41,19 +41,19 @@ public class OpticalSight : MonoBehaviour
 
       if (Input.GetTouch(0).phase == TouchPhase.Ended)
       {
-        StartCoroutine(Hide());
+        _fieldFovAnimation1.Kill();
+        Hide();
       }
     }
   }
 
-  private IEnumerator Hide()
+  private void Hide()
   {
-    SightIsReleased?.Invoke();
-    float delay = 0.8f;
-    WaitForSeconds waitForSeconds = new WaitForSeconds(delay);
-    yield return waitForSeconds;
+    _sight.SetActive(false);
     _targetZoom = _maximuFov;
-    _fieldFovAnimation1.Kill();
-    _fieldFovAnimation2 = _camera.DOFieldOfView(_maximuFov, _duration);
+    _camera.DOFieldOfView(_maximuFov, _duration);
+
+    if (_canShoot)
+      SightIsReleased?.Invoke();
   }
 }
