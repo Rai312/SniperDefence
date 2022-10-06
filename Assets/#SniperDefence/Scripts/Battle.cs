@@ -67,7 +67,7 @@ public class Battle : MonoBehaviour
         bool firstTeamResult = _teamDefender.CheckLose();
         bool secondTeamResult = _teamEnemy.CheckLose();
 
-        Debug.Log("CheckWin");
+        //Debug.Log("CheckWin");
         //if (firstTeamResult && secondTeamResult)
         //{
         //    _drawMessage.gameObject.SetActive(true);

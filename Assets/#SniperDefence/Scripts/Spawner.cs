@@ -73,7 +73,7 @@ public class Spawner : MonoBehaviour
     private bool CanSpawn(Vector3 hitPoint)
     {
         Collider[] intersecting =
-          Physics.OverlapBox(hitPoint, (_activeDefender.GetComponent<MeshRenderer>().bounds.size / 2));
+          Physics.OverlapBox(hitPoint, (_activeDefender.GetComponentInChildren<MeshRenderer>().bounds.size / 2));
 
         foreach (var intersectin in intersecting)
         {

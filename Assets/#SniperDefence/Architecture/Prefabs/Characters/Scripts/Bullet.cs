@@ -3,27 +3,28 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-  [SerializeField] private float _movementSpeed;
-  
-  private Rigidbody _rigidbody;
-  
-  private void Awake()
-  {
-    _rigidbody = GetComponent<Rigidbody>();
-  }
+    [SerializeField] private float _movementSpeed;
 
-  private void OnTriggerEnter(Collider other)
-  {
-    if (other.gameObject.TryGetComponent(out Enemy enemy))
+    private Rigidbody _rigidbody;
+
+    private void Awake()
     {
-      Debug.Log(enemy.name);
-      enemy.gameObject.SetActive(false);
-      Destroy(gameObject);
+        _rigidbody = GetComponent<Rigidbody>();
     }
-  }
 
-  public void Move()
-  {
-    _rigidbody.AddForce(Camera.main.transform.forward * _movementSpeed, ForceMode.Impulse);
-  }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out Enemy enemy))
+        {
+            Debug.Log(enemy.name);
+            //enemy.gameObject.SetActive(false);
+            enemy.TakeDamage(200);
+            Destroy(gameObject);
+        }
+    }
+
+    public void Move()
+    {
+        _rigidbody.AddForce(Camera.main.transform.forward * _movementSpeed, ForceMode.Impulse);
+    }
 }

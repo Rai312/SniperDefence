@@ -14,7 +14,7 @@ public class FightingState : IUnitState
     {
         if (_unit is Enemy)
         {
-            Debug.Log("Fighting - Enter - " + _unit);
+            //Debug.Log("Fighting - Enter - " + _unit);
         }
         _timeToAttack = 0.2f;
         
@@ -31,7 +31,7 @@ public class FightingState : IUnitState
            // Debug.Log("ASDASDSAD");
             Enemy enemy = (Enemy) _unit;
             enemy.MoveToFinish();
-            Debug.Log("Fighting - Exit - " + _unit);
+            //Debug.Log("Fighting - Exit - " + _unit);
         }
     }
 

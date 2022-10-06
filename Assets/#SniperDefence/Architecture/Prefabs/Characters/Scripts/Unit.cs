@@ -49,7 +49,7 @@ public abstract class Unit : MonoBehaviour
             _target.Died -= OnTargetDied;
     }
 
-    public void TrySetTarget()
+    public void SetTarget()
     {
         _target = GetTarget();
         if (_target == null)
@@ -75,7 +75,7 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    public void HitTarget()
+    public virtual void HitTarget()
     {
         if (_target != null)
         {
@@ -112,7 +112,7 @@ public abstract class Unit : MonoBehaviour
 
                     if (distanceToTarget < _targetDistance && _targets[i].IsAlive)
                     {
-                        Debug.Log("TargetSearching - ������ - " + _targets[i]);
+                        //Debug.Log("TargetSearching - ������ - " + _targets[i]);
                         TargetSearching?.Invoke();
                     }
                 }
