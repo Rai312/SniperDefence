@@ -18,33 +18,34 @@ public class GameStateMachine : MonoBehaviour
     private void Awake()
     {
         InitStates();
+        SetStateByDefault();
     }
 
     private void OnEnable()
     {
-        _uI.MainMenu.StartButton.onClick.AddListener(SetPlayState);
+        _uI.OpeningMenu.StartButton.onClick.AddListener(SetPlayState);
         _uI.SniperMenu.StartButton.onClick.AddListener(SetSniperShootingState);
     }
 
     private void OnDisable()
     {
-        _uI.MainMenu.StartButton.onClick.RemoveListener(SetPlayState);
+        _uI.OpeningMenu.StartButton.onClick.RemoveListener(SetPlayState);
         _uI.SniperMenu.StartButton.onClick.RemoveListener(SetSniperShootingState);
     }
 
     private void Start()
     {
-        SetStateByDefault();
+        SetOpeningState();
     }
 
     private void InitStates()
     {
         _statesMap = new Dictionary<Type, IGameState>
         {
-            [typeof(InitialState)] = new InitialState(_uI, _battle),
+            [typeof(InitialState)] = new InitialState(_uI, _battle, _spawner),
             [typeof(OpeningState)] = new OpeningState(_uI),
             [typeof(PlayState)] = new PlayState(_uI, _spawner, _teamEnemy, _teamDefender),
-            [typeof(SniperShootingState)] = new SniperShootingState(_uI, _cameraController, _sniper, _spawner),
+            [typeof(SniperShootingState)] = new SniperShootingState(_uI, _cameraController, _sniper, _spawner, _teamEnemy, _teamDefender),
             [typeof(PauseState)] = new PauseState(_uI),
             [typeof(EndLevelState)] = new EndLevelState(_uI),
             [typeof(FailState)] = new FailState(_uI),
@@ -94,7 +95,9 @@ public class GameStateMachine : MonoBehaviour
 
     private void SetStateByDefault()
     {
-        SetPlayState();
+        //SetPlayState();
+        //SetOpeningState();
+        SetInitialState();
     }
 
     private void SetState(IGameState newState)

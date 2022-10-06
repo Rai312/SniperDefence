@@ -43,7 +43,7 @@ public class UnitStateMachine : MonoBehaviour
     {
         _statesMap = new Dictionary<Type, IUnitState>()
         {
-            [typeof(StartState)] = new StartState(),
+            [typeof(StartState)] = new StartState(_unit),
             [typeof(WaitingState)] = new WaitingState(_unit),
             [typeof(TargetSearchState)] = new TargetSearchState(_unit),
             [typeof(MovementState)] = new MovementState(_unit),
@@ -90,8 +90,8 @@ public class UnitStateMachine : MonoBehaviour
 
     private void SetStateByDefault()
     {
-        SetWaitingState();
-        // SetWaitingState();
+        //SetWaitingState();
+        SetStartState();
     }
 
     private void SetState(IUnitState newState)

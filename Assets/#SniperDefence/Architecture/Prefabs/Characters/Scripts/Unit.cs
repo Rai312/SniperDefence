@@ -92,20 +92,18 @@ public abstract class Unit : MonoBehaviour
         Fight?.Invoke();
     }
 
-    //public void StartBattle()
-    //{
-    //    TargetSearching?.Invoke();
-    //}
-
     public virtual void StartBattle()
     {
         Waiting?.Invoke();
-        //TargetSearching?.Invoke();
     }
 
     public void CheckDistanceToEnemy()
     {
-        //Debug.Log("CheckDistanceToEnemy");
+        if (this is Enemy)
+        {
+            Debug.Log("CheckDistanceToEnemy");
+        }
+
         for (int i = 0; i < _targets.Count; i++)
         {
             if (this is Enemy)

@@ -38,6 +38,22 @@ public class Spawner : MonoBehaviour
         return null;
     }
 
+    public void Initialize()
+    {
+        Disable();
+    }
+
+    public void Enable()
+    {
+        enabled = true;
+    }
+
+    public void Disable()
+    {
+        //Debug.Log("DisableSpawner");
+        enabled = false;
+    }
+
     private void ChooseSpawnUnit(Defender defender)
     {
         _activeDefender = defender;

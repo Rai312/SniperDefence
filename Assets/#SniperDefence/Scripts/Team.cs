@@ -9,7 +9,7 @@ public abstract class Team : MonoBehaviour
 
     public void AddSpawned(Unit unit)
     {
-        Debug.Log("AddSpawned");
+        //Debug.Log("AddSpawned");
         _units.Add(unit);
     }
 

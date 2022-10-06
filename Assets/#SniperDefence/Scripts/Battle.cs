@@ -29,20 +29,20 @@ public class Battle : MonoBehaviour
         }
     }
 
-    public void StartBattle()
-    {
-        foreach (var unit in _teamDefender.Units)
-        {
-            unit.StartBattle();
-        }
+    //public void StartBattle()
+    //{
+    //    foreach (var unit in _teamDefender.Units)
+    //    {
+    //        unit.StartBattle();
+    //    }
 
-        foreach (var unit in _teamEnemy.Units)
-        {
-            unit.StartBattle();
-        }
-    }
+    //    foreach (var unit in _teamEnemy.Units)
+    //    {
+    //        unit.StartBattle();
+    //    }
+    //}
 
-    private void Initialization()
+    public void Initialization()
     {
         foreach (var unit in _teamDefender.Units)
         {

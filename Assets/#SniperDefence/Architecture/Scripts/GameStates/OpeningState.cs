@@ -13,13 +13,15 @@ public class OpeningState : IGameState
 
     public void Enter()
     {
-        _uI.MainMenu.Show();
-        Debug.Log("Opening State - Enter");
+        _uI.OpeningMenu.Show();
+        //Debug.Log("Opening State - Enter");
+
     }
 
     public void Exit()
     {
-        _uI.MainMenu.Hide();
-        Debug.Log("Opening State - Exit");
+        _uI.OpeningMenu.Hide();
+        //Debug.Log("Opening State - Exit");
+
     }
 }

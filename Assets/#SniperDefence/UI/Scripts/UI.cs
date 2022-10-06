@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] private MainMenu _mainMenu;
+    [SerializeField] private OpeningMenu _mainMenu;
     [SerializeField] private PlayMenu _playMenu;
     [SerializeField] private SniperMenu _sniperMenu;
     [SerializeField] private SettingsMenu _settingMenu;
     [SerializeField] private EndLevelMenu _endLevelMenu;
     [SerializeField] private FailMenu _failMenu;
 
-    public MainMenu MainMenu => _mainMenu;
+    public OpeningMenu OpeningMenu => _mainMenu;
     public PlayMenu PlayMenu => _playMenu;
     public SniperMenu SniperMenu => _sniperMenu;
     public SettingsMenu SettingsMenu => _settingMenu;

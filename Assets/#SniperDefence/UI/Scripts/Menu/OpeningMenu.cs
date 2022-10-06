@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : Menu
+public class OpeningMenu : Menu
 {
     [SerializeField] private Button _startButton;
 
