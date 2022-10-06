@@ -110,9 +110,9 @@ public abstract class Unit : MonoBehaviour
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
 
-                    if (distanceToTarget < _targetDistance)
+                    if (distanceToTarget < _targetDistance && _targets[i].IsAlive)
                     {
-                        //Debug.Log("TargetSearchingEnemy");
+                        Debug.Log("TargetSearching - найдет - " + _targets[i]);
                         TargetSearching?.Invoke();
                     }
                 }
@@ -123,9 +123,8 @@ public abstract class Unit : MonoBehaviour
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
 
-                    if (distanceToTarget < _targetDistance)
+                    if (distanceToTarget < _targetDistance && _targets[i].IsAlive)
                     {
-                        //Debug.Log("TargetSearchingPolice");
                         TargetSearching?.Invoke();
                     }
                 }
@@ -190,7 +189,8 @@ public abstract class Unit : MonoBehaviour
     public virtual void OnTargetDied()
     {
         _target.Died -= OnTargetDied;
-        TargetSearching?.Invoke();
+        //TargetSearching?.Invoke();
+        Waiting?.Invoke();
     }
 
     //The Event in Animation

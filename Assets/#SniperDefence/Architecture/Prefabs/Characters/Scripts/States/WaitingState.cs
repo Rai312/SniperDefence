@@ -20,6 +20,7 @@ public class WaitingState : IUnitState
         {
             Enemy enemy = (Enemy)_unit;
             enemy.MoveToFinish();
+            _unit.NavMeshAgent.speed = 3f;
         }
     }
 
@@ -34,7 +35,6 @@ public class WaitingState : IUnitState
 
     public void FixedUpdate()
     {
-
         _unit.CheckDistanceToEnemy();
     }
 }
