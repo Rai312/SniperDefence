@@ -14,10 +14,12 @@ public class Bullet : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    print("попал");
-    
-    if(other.gameObject.TryGetComponent(out Unit unit))
-      unit.gameObject.SetActive(false);
+    if (other.gameObject.TryGetComponent(out Enemy enemy))
+    {
+      Debug.Log(enemy.name);
+      enemy.gameObject.SetActive(false);
+      Destroy(gameObject);
+    }
   }
 
   public void Move()

@@ -99,7 +99,7 @@ public abstract class Unit : MonoBehaviour
     {
         if (this is Enemy)
         {
-            Debug.Log("CheckDistanceToEnemy");
+         //   Debug.Log("CheckDistanceToEnemy");
         }
 
         for (int i = 0; i < _targets.Count; i++)
@@ -112,7 +112,7 @@ public abstract class Unit : MonoBehaviour
 
                     if (distanceToTarget < _targetDistance && _targets[i].IsAlive)
                     {
-                        Debug.Log("TargetSearching - найдет - " + _targets[i]);
+                        Debug.Log("TargetSearching - пїЅпїЅпїЅпїЅпїЅпїЅ - " + _targets[i]);
                         TargetSearching?.Invoke();
                     }
                 }
