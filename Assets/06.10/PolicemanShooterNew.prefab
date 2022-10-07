@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 963516128539847542}
   - component: {fileID: 1412376341222547817}
   - component: {fileID: 7948980157111358577}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PolicemanShooterNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
