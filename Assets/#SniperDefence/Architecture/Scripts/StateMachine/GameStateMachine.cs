@@ -8,7 +8,7 @@ public class GameStateMachine : MonoBehaviour
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private Sniper _sniper;
     [SerializeField] private Battle _battle;
-    [SerializeField] private Spawner _spawner;
+    [SerializeField] private PlaceHolder _placeHolder;
     [SerializeField] private TeamDefender _teamDefender;
     [SerializeField] private TeamEnemy _teamEnemy;
     
@@ -42,10 +42,10 @@ public class GameStateMachine : MonoBehaviour
     {
         _statesMap = new Dictionary<Type, IGameState>
         {
-            [typeof(InitialState)] = new InitialState(_uI, _battle, _spawner),
+            [typeof(InitialState)] = new InitialState(_uI, _battle, _placeHolder),
             [typeof(OpeningState)] = new OpeningState(_uI),
-            [typeof(PlayState)] = new PlayState(_uI, _spawner, _teamEnemy, _teamDefender, _battle),
-            [typeof(SniperShootingState)] = new SniperShootingState(_uI, _cameraController, _sniper, _spawner, _teamEnemy, _teamDefender),
+            [typeof(PlayState)] = new PlayState(_uI, _placeHolder, _teamEnemy, _teamDefender, _battle),
+            [typeof(SniperShootingState)] = new SniperShootingState(_uI, _cameraController, _sniper, _placeHolder, _teamEnemy, _teamDefender),
             [typeof(PauseState)] = new PauseState(_uI),
             [typeof(EndLevelState)] = new EndLevelState(_uI),
             [typeof(FailState)] = new FailState(_uI),

@@ -6,19 +6,19 @@ public class InitialState : IGameState
 {
     private readonly UI _uI;
     private readonly Battle _battle;
-    private readonly Spawner _spawner;
+    private readonly PlaceHolder _placeHolder;
 
-    public InitialState(UI ui,Battle battle, Spawner spawner)
+    public InitialState(UI ui,Battle battle, PlaceHolder placeHolder)
     {
         _uI = ui;
         _battle = battle;
-        _spawner = spawner;
+        _placeHolder = placeHolder;
     }
 
     public void Enter()
     {
         //Debug.Log("InitialState - Enter");
-        _spawner.Initialize();
+      //  _spawner.Initialize();
         _uI.OpeningMenu.Show();
         //_battle.StartBattle();
         _battle.InitializeEnemies();

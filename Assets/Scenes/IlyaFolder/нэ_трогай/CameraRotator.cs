@@ -9,7 +9,8 @@ public class CameraRotator : MonoBehaviour
   [SerializeField] private float _yMinimumClamp;
   [SerializeField] private float _yMaximumClamp;
   [SerializeField] private float _xStartRotation;
-  
+  [SerializeField] private float _yStartRotation;
+
   private Camera _camera;
   private Vector3 _firstPoint;
   private Vector3 _secondPoint;
@@ -18,7 +19,7 @@ public class CameraRotator : MonoBehaviour
   private float _tempXrotation;
   private float _tempYrotation;
   private bool _isStartZoom = true;
-  
+
   private void Awake()
   {
     _camera = GetComponent<Camera>();
@@ -63,9 +64,10 @@ public class CameraRotator : MonoBehaviour
     if (_isStartZoom == true)
     {
       _xRotation = -_xStartRotation;
+      _yRotation = -_yStartRotation;
       _isStartZoom = false;
     }
-    
+
     _xRotation = Mathf.Clamp(_xRotation, _xMinimumClamp, _xMaximumClamp);
     _yRotation = Mathf.Clamp(_yRotation, _yMinimumClamp, _yMaximumClamp);
     transform.localRotation = Quaternion.Euler(-_xRotation, _yRotation, zeroAngle);

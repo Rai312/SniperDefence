@@ -3,24 +3,34 @@ using UnityEngine;
 
 public abstract class Team : MonoBehaviour
 {
-    [SerializeField] private List<Unit> _units;
+  [SerializeField] private List<Unit> _units;
 
-    public IReadOnlyList<Unit> Units => _units;
+  public IReadOnlyList<Unit> Units => _units;
 
-    public void AddSpawned(Unit unit)
+  /*  public void AddSpawned(Unit unit)
     {
         //Debug.Log("AddSpawned");
         _units.Add(unit);
     }
+*/
+  public void AddSpawned(DefenderSquat defenderSquat)
+  {
+    var defenders = defenderSquat.GetComponentsInChildren<Defender>();
 
-    public bool CheckLose()
+    for (int i = 0; i < defenders.Length; i++)
     {
-        foreach (var unit in _units)
-        {
-            if (unit.IsAlive)
-                return false;
-        }
-
-        return true;
+      _units.Add(defenders[i]);
     }
+  }
+
+  public bool CheckLose()
+  {
+    foreach (var unit in _units)
+    {
+      if (unit.IsAlive)
+        return false;
+    }
+
+    return true;
+  }
 }

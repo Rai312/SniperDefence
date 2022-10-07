@@ -13,29 +13,13 @@ public class ButtonSelectionLogic : MonoBehaviour
   {
     _buyButtons = GetComponentsInChildren<BuyButton>();
   }
-
-  private void OnEnable()
-  {
-    for (int i = 0; i < _buyButtons.Length; i++)
-    {
-      _buyButtons[i].ButtonClick += OnButtonClick;
-    }
-  }
-
-  private void OnDisable()
-  {
-    for (int i = 0; i < _buyButtons.Length; i++)
-    {
-      _buyButtons[i].ButtonClick -= OnButtonClick;
-    }
-  }
-
+  
   private void OnButtonClick(BuyButton buyButton)
   {
     ChangeScaleAnimation(targetScale, buyButton);
     DisableButtonSelection(buyButton);
-    Defender activeDefender = buyButton.DefenderPrefab;
-    ButtonSelected?.Invoke(activeDefender);
+ //   Defender activeDefender = buyButton.DefenderPrefab;
+  //  ButtonSelected?.Invoke(activeDefender);
   }
 
   private void DisableButtonSelection(BuyButton activeButton)
