@@ -4,39 +4,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Unit : MonoBehaviour
+public abstract class Unit : Target
 {
     [SerializeField] private UnitAnimator _unitAnimator;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private float _hitDistance;
     [SerializeField] private float _targetDistance;
-    [SerializeField] private int _health;
+    //[SerializeField] private int _health;
     [SerializeField] private int _damage;
     [SerializeField] private ParticleSystem _deathParticle;
 
     private int _currentHealth;
-    private IReadOnlyList<Unit> _targets;
-    private Unit _target;
+    private IReadOnlyList<Target> _targets;
+    private Target _target;
 
-    public bool IsAlive { get; private set; }
+    //public bool IsAlive { get; private set; }
     public float HitDistance => _hitDistance;
     public ParticleSystem DeathParticle => _deathParticle;
     public UnitAnimator UnitAnimator => _unitAnimator;
-    public Unit Target => _target;
+    public Target Target => _target;
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
-    public float Health => _health;
+    //public float Health => _health;
 
     public event Action Waiting;
     public event Action TargetSearching;
     public event Action TargetAssigned;
     public event Action Fight;
-    public event Action Died;
+    //public event Action Died;
+    public override event Action Died;
 
-    public void Initialize(IReadOnlyList<Unit> enemies)
+    public override void Initialize(IReadOnlyList<Target> enemies)
     {
         if (enemies == null)
             throw new ArgumentNullException("Unit is not initialized by enemies.");
-        _currentHealth = _health;
+        _currentHealth = Health;
         _targets = enemies;
     }
 
@@ -63,7 +64,7 @@ public abstract class Unit : MonoBehaviour
         TargetAssigned?.Invoke();
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         if (damage < _currentHealth)
             _currentHealth -= damage;
@@ -72,7 +73,7 @@ public abstract class Unit : MonoBehaviour
             IsAlive = false;
             _currentHealth = 0;
             //_deathParticle.Play();
-            
+
             if (_target != null)
                 _target.Died -= OnTargetDied;
 
@@ -147,11 +148,11 @@ public abstract class Unit : MonoBehaviour
         Waiting?.Invoke();
     }
 
-    private Unit GetTarget()//DUPLICATE
+    private Target GetTarget()//DUPLICATE
     {
         if (this is Enemy)
         {
-            Unit nearestTarget = null;
+            Target nearestTarget = null;
             float distanceToNearestTarget = float.MaxValue;
             for (int i = 0; i < _targets.Count; i++)
             {
@@ -171,7 +172,7 @@ public abstract class Unit : MonoBehaviour
         }
         else
         {
-            Unit nearestTarget = null;
+            Target nearestTarget = null;
             float distanceToNearestTarget = float.MaxValue;
             for (int i = 0; i < _targets.Count; i++)
             {

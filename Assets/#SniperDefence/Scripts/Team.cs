@@ -3,11 +3,11 @@ using UnityEngine;
 
 public abstract class Team : MonoBehaviour
 {
-    [SerializeField] private List<Unit> _units;
+    [SerializeField] private List<Target> _units;
 
-    public IReadOnlyList<Unit> Units => _units;
+    public IReadOnlyList<Target> Units => _units;
 
-    public void AddSpawned(Unit unit)
+    public void AddSpawned(Target unit)
     {
         //Debug.Log("AddSpawned");
         _units.Add(unit);
