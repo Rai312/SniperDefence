@@ -3,19 +3,19 @@ using UnityEngine;
 
 public abstract class Team : MonoBehaviour
 {
-    [SerializeField] private List<Unit> _targets;
+    [SerializeField] private List<Unit> _units;
 
-    public IReadOnlyList<Target> Targets => _targets;
+    public IReadOnlyList<Unit> Units => _units;
 
     public void AddSpawned(Unit unit)
     {
         //Debug.Log("AddSpawned");
-        _targets.Add(unit);
+        _units.Add(unit);
     }
 
     public bool CheckLose()
     {
-        foreach (var unit in _targets)
+        foreach (var unit in _units)
         {
             if (unit.IsAlive)
                 return false;

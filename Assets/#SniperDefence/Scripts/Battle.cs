@@ -18,12 +18,12 @@ public class Battle : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (var unit in _teamDefender.Targets)
+        foreach (var unit in _teamDefender.Units)
         {
             unit.Died -= CheckWin;
         }
 
-        foreach (var unit in _teamEnemy.Targets)
+        foreach (var unit in _teamEnemy.Units)
         {
             unit.Died -= CheckWin;
         }
@@ -43,9 +43,9 @@ public class Battle : MonoBehaviour
     //}
     public void InitializeDefenders()
     {
-        foreach (var unit in _teamDefender.Targets)
+        foreach (var unit in _teamDefender.Units)
         {
-            unit.Initialize(_teamEnemy.Targets);
+            unit.Initialize(_teamEnemy.Units);
             unit.Died += CheckWin;
             //Debug.Log("InitializeDefenders");
         }
@@ -54,9 +54,9 @@ public class Battle : MonoBehaviour
     public void InitializeEnemies()
     {
 
-        foreach (var unit in _teamEnemy.Targets)
+        foreach (var unit in _teamEnemy.Units)
         {
-            unit.Initialize(_teamDefender.Targets);
+            unit.Initialize(_teamDefender.Units);
             unit.Died += CheckWin;
 
         }
