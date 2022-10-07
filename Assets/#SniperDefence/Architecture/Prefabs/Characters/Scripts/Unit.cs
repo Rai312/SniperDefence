@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Unit : MonoBehaviour
+public class Unit : Target
 {
     [SerializeField] private UnitAnimator _unitAnimator;
     [SerializeField] private NavMeshAgent _navMeshAgent;
@@ -202,5 +202,10 @@ public abstract class Unit : MonoBehaviour
     private void HandleDieAnimation()
     {
         gameObject.SetActive(false);
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        throw new NotImplementedException();
     }
 }

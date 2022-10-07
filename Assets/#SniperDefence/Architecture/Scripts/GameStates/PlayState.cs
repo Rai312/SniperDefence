@@ -38,7 +38,7 @@ public class PlayState : IGameState
 
     private void OnSpawned(Defender defender)
     {
-        defender.Initialize(_teamEnemy.Units);
+        defender.Initialize(_teamEnemy.Targets);
         _teamDefender.AddSpawned(defender);
 
     }

@@ -24,14 +24,14 @@ public class SniperShootingState : IGameState
   public void Enter()
   {
     //Debug.Log("ShootingState - Enter");
-    for (int i = 0; i < _teamEnemy.Units.Count; i++)
+    for (int i = 0; i < _teamEnemy.Targets.Count; i++)
     {
-      _teamEnemy.Units[i].SetWaiting();
+      _teamEnemy.Targets[i].SetWaiting();
     }
 
-    for (int i = 0; i < _teamDefender.Units.Count; i++)
+    for (int i = 0; i < _teamDefender.Targets.Count; i++)
     {
-      _teamDefender.Units[i].SetWaiting();
+      _teamDefender.Targets[i].SetWaiting();
     }
 
     _cameraController.PlayableDirectorFinished += Enable;

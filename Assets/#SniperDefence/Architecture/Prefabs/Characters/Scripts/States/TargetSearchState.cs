@@ -20,10 +20,10 @@ public class TargetSearchState : IUnitState
         //{
         //    _unit.TrySetTarget();
         //}
-        if (_unit is PolicemanFighter || _unit is PolicemanShooter || _unit is Enemy)
-        {
+        //if (_unit is PolicemanFighter || _unit is PolicemanShooter || _unit is Enemy)
+        //{
             _unit.SetTarget();
-        }
+        //}
 
     }
 
