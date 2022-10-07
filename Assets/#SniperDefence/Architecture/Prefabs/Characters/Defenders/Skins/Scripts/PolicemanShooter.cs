@@ -13,6 +13,7 @@ public class PolicemanShooter : Defender
     {
         Bullet bullet = Instantiate(_bulletPrefab, _shootPoint.transform.position, Quaternion.identity, null);
         bullet.transform.DOMove(Target.transform.position, 0.5f).SetEase(Ease.Linear);
+        SetTarget();
     }
 
     public override void HitTarget()
@@ -25,6 +26,6 @@ public class PolicemanShooter : Defender
     public override void OnTargetDied()
     {
         Target.Died -= OnTargetDied;
-        SetTarget();
+        //SetTarget();
     }
 }

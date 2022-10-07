@@ -70,7 +70,8 @@ public abstract class Unit : MonoBehaviour
         else
         {
             IsAlive = false;
-            _deathParticle.Play();
+            _currentHealth = 0;
+            //_deathParticle.Play();
             
             if (_target != null)
                 _target.Died -= OnTargetDied;

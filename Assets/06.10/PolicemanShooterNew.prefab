@@ -56,7 +56,7 @@ MonoBehaviour:
   _health: 100
   _damage: 50
   _deathParticle: {fileID: 7187309251550664975}
-  _bulletPrefab: {fileID: 517875665828562528, guid: 35084f6562860b94ca7bcc16a6333e9d, type: 3}
+  _bulletPrefab: {fileID: 517875665828562528, guid: f1d2b911fdad5994895b579dc470d247, type: 3}
   _shootPoint: {fileID: 7298616892101364032}
 --- !u!195 &963516128539847542
 NavMeshAgent:
