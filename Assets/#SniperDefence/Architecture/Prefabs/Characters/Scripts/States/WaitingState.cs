@@ -20,7 +20,7 @@ public class WaitingState : IUnitState
         {
             Enemy enemy = (Enemy)_unit;
             enemy.MoveToFinish();
-            _unit.NavMeshAgent.speed = 3f;
+            enemy.NavMeshAgent.speed = 3f;
         }
     }
 

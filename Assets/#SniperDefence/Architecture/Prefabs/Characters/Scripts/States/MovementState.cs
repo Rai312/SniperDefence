@@ -13,8 +13,9 @@ public class MovementState : IUnitState
     {
         if (_unit is Enemy)
         {
-            //Debug.Log("Move - Enter - " + _unit);
+            //Debug.Log("Move - Enter - " + _unit
         }
+
         _unit.NavMeshAgent.enabled = true;
         _unit.NavMeshAgent.speed = 3f;
         _unit.UnitAnimator.ShowRun();
@@ -30,6 +31,7 @@ public class MovementState : IUnitState
 
         _unit.UnitAnimator.ResetTrigger();
         //_unit.NavMeshAgent.enabled = false;
+
         _unit.NavMeshAgent.speed = 0;
     }
 

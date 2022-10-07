@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.AI;
 
 public class PolicemanShooter : Defender
 {
     [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private Transform _shootPoint;
-    //[SerializeField] private 
 
     private void Shoot()
     {
