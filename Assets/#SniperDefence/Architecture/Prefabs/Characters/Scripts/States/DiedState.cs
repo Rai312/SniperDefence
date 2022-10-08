@@ -1,35 +1,38 @@
 using UnityEngine;
 
-public class DiedState : IUnitState
+namespace UnitState
 {
-    private Unit _unit;
-
-    public DiedState(Unit unit)
+    public class DiedState : IUnitState
     {
-        _unit = unit;
-    }
+        private Unit _unit;
 
-    public void Enter()
-    {
-        if (_unit is Unit)
+        public DiedState(Unit unit)
         {
-            Debug.Log("DieState - Enter" + this);
+            _unit = unit;
         }
-        //_unit.DeathParticle.Play();
-        //_unit.NavMeshAgent.enabled = false;
-           _unit.gameObject.SetActive(false);
-    }
 
-    public void Exit()
-    {
-        if (_unit is Unit)
+        public void Enter()
         {
-            Debug.Log("DieState - Exit" + this);
-
+            if (_unit is Unit)
+            {
+                Debug.Log("DieState - Enter" + this);
+            }
+            //_unit.DeathParticle.Play();
+            //_unit.NavMeshAgent.enabled = false;
+            _unit.gameObject.SetActive(false);
         }
-    }
 
-    public void FixedUpdate()
-    {
+        public void Exit()
+        {
+            if (_unit is Unit)
+            {
+                Debug.Log("DieState - Exit" + this);
+
+            }
+        }
+
+        public void FixedUpdate()
+        {
+        }
     }
 }

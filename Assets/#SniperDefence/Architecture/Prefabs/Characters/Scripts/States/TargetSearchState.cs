@@ -1,42 +1,45 @@
 using UnityEngine;
 
-public class TargetSearchState : IUnitState
+namespace UnitState
 {
-    private Unit _unit;
-
-    public TargetSearchState(Unit unit)
+    public class TargetSearchState : IUnitState
     {
-        _unit = unit;
-    }
+        private Unit _unit;
 
-    public void Enter()
-    {
-        if (_unit is Enemy)
+        public TargetSearchState(Unit unit)
         {
-            //Debug.Log("TargetSearchState - Enter - " + _unit);
+            _unit = unit;
         }
 
-        //if (_unit is Defender)
-        //{
-        //    _unit.TrySetTarget();
-        //}
-        if (_unit is PolicemanFighter || _unit is PolicemanShooter || _unit is Enemy)
+        public void Enter()
         {
-            _unit.SetTarget();
+            if (_unit is Enemy)
+            {
+                //Debug.Log("TargetSearchState - Enter - " + _unit);
+            }
+
+            //if (_unit is Defender)
+            //{
+            //    _unit.TrySetTarget();
+            //}
+            if (_unit is PolicemanFighter || _unit is PolicemanShooter || _unit is Enemy)
+            {
+                _unit.SetTarget();
+            }
+
         }
 
-    }
-
-    public void Exit()
-    {
-        if (_unit is Enemy)
+        public void Exit()
         {
-            //Debug.Log("TargetSearchState - Exit - " + _unit);
+            if (_unit is Enemy)
+            {
+                //Debug.Log("TargetSearchState - Exit - " + _unit);
+            }
         }
-    }
 
-    public void FixedUpdate()
-    {
+        public void FixedUpdate()
+        {
 
+        }
     }
 }

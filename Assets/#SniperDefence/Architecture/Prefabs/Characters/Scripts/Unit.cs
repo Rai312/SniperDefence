@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Unit : MonoBehaviour
+public abstract class Unit : MonoBehaviour, IDamageable
 {
     [SerializeField] private UnitAnimator _unitAnimator;
     [SerializeField] private NavMeshAgent _navMeshAgent;
@@ -63,7 +63,7 @@ public abstract class Unit : MonoBehaviour
         TargetAssigned?.Invoke();
     }
 
-    public void TakeDamage(int damage)
+    public void Damage(int damage)
     {
         if (damage < _currentHealth)
             _currentHealth -= damage;
@@ -72,13 +72,30 @@ public abstract class Unit : MonoBehaviour
             IsAlive = false;
             _currentHealth = 0;
             //_deathParticle.Play();
-            
+
             if (_target != null)
                 _target.Died -= OnTargetDied;
 
             Died?.Invoke();
         }
     }
+
+    //public void TakeDamage(int damage)
+    //{
+    //    if (damage < _currentHealth)
+    //        _currentHealth -= damage;
+    //    else
+    //    {
+    //        IsAlive = false;
+    //        _currentHealth = 0;
+    //        //_deathParticle.Play();
+            
+    //        if (_target != null)
+    //            _target.Died -= OnTargetDied;
+
+    //        Died?.Invoke();
+    //    }
+    //}
 
     public virtual void HitTarget()
     {
@@ -90,7 +107,7 @@ public abstract class Unit : MonoBehaviour
                 Waiting.Invoke();
             }
             else
-                _target.TakeDamage(_damage);
+                _target.Damage(_damage);
         }
 
     }

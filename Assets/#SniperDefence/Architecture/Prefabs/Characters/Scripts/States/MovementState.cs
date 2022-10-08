@@ -1,44 +1,47 @@
 using UnityEngine;
 
-public class MovementState : IUnitState
+namespace UnitState
 {
-    private Unit _unit;
-
-    public MovementState(Unit unit)
+    public class MovementState : IUnitState
     {
-        _unit = unit;
-    }
+        private Unit _unit;
 
-    public void Enter()
-    {
-        if (_unit is Enemy)
+        public MovementState(Unit unit)
         {
-            //Debug.Log("Move - Enter - " + _unit
+            _unit = unit;
         }
 
-        _unit.NavMeshAgent.enabled = true;
-        _unit.NavMeshAgent.speed = 3f;
-        _unit.UnitAnimator.ShowRun();
-        _unit.transform.LookAt(_unit.Target.transform.position);
-    }
-
-    public void Exit()
-    {
-        if (_unit is Enemy)
+        public void Enter()
         {
-            //Debug.Log("Move - Exit - " + _unit);
+            if (_unit is Enemy)
+            {
+                //Debug.Log("Move - Enter - " + _unit
+            }
+
+            _unit.NavMeshAgent.enabled = true;
+            _unit.NavMeshAgent.speed = 3f;
+            _unit.UnitAnimator.ShowRun();
+            _unit.transform.LookAt(_unit.Target.transform.position);
         }
 
-        _unit.UnitAnimator.ResetTrigger();
-        //_unit.NavMeshAgent.enabled = false;
+        public void Exit()
+        {
+            if (_unit is Enemy)
+            {
+                //Debug.Log("Move - Exit - " + _unit);
+            }
 
-        _unit.NavMeshAgent.speed = 0;
-    }
+            _unit.UnitAnimator.ResetTrigger();
+            //_unit.NavMeshAgent.enabled = false;
 
-    public void FixedUpdate()
-    {
-        _unit.NavMeshAgent.SetDestination(_unit.Target.transform.position);
-        if (Vector3.Distance(_unit.transform.position, _unit.Target.transform.position) < _unit.HitDistance)
-            _unit.StartFighting();
+            _unit.NavMeshAgent.speed = 0;
+        }
+
+        public void FixedUpdate()
+        {
+            _unit.NavMeshAgent.SetDestination(_unit.Target.transform.position);
+            if (Vector3.Distance(_unit.transform.position, _unit.Target.transform.position) < _unit.HitDistance)
+                _unit.StartFighting();
+        }
     }
 }

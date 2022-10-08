@@ -1,31 +1,34 @@
 ﻿using UnityEngine;
 
-public class StartState : IUnitState
+namespace UnitState
 {
-    private readonly Unit _unit;
-
-    public StartState(Unit unit)
+    public class StartState : IUnitState
     {
-        _unit = unit;
-    }
+        private readonly Unit _unit;
 
-    public void Enter()
-  {
-        if (_unit is Enemy)
+        public StartState(Unit unit)
         {
-            //Debug.Log("StartState - Enter - " + _unit);
+            _unit = unit;
+        }
+
+        public void Enter()
+        {
+            if (_unit is Enemy)
+            {
+                //Debug.Log("StartState - Enter - " + _unit);
+            }
+        }
+
+        public void Exit()
+        {
+            if (_unit is Enemy)
+            {
+                //Debug.Log("StartState - Exit - " + _unit);
+            }
+        }
+
+        public void FixedUpdate()
+        {
         }
     }
-
-  public void Exit()
-  {
-        if (_unit is Enemy)
-        {
-            //Debug.Log("StartState - Exit - " + _unit);
-        }
-  }
-
-  public void FixedUpdate()
-  {
-  }
 }

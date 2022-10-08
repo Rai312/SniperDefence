@@ -1,40 +1,43 @@
 using UnityEngine;
 
-public class WaitingState : IUnitState
+namespace UnitState
 {
-    private Unit _unit;
-
-    public WaitingState(Unit unit)
+    public class WaitingState : IUnitState
     {
-        _unit = unit;
-    }
+        private Unit _unit;
 
-    public void Enter()
-    {
-        if (_unit is Enemy)
+        public WaitingState(Unit unit)
         {
-            //Debug.Log("WaitingState - Enter - " + _unit);
+            _unit = unit;
         }
-        _unit.UnitAnimator.ShowIdle();
-        if (_unit is Enemy)
-        {
-            Enemy enemy = (Enemy)_unit;
-            enemy.MoveToFinish();
-            enemy.NavMeshAgent.speed = 3f;
-        }
-    }
 
-    public void Exit()
-    {
-        if (_unit is Enemy)
+        public void Enter()
         {
-            //Debug.Log("WaitingState - Exit - " + _unit);
+            if (_unit is Enemy)
+            {
+                //Debug.Log("WaitingState - Enter - " + _unit);
+            }
+            _unit.UnitAnimator.ShowIdle();
+            if (_unit is Enemy)
+            {
+                Enemy enemy = (Enemy)_unit;
+                enemy.MoveToFinish();
+                enemy.NavMeshAgent.speed = 3f;
+            }
         }
-        _unit.UnitAnimator.ResetTrigger();
-    }
 
-    public void FixedUpdate()
-    {
-        _unit.CheckDistanceToEnemy();
+        public void Exit()
+        {
+            if (_unit is Enemy)
+            {
+                //Debug.Log("WaitingState - Exit - " + _unit);
+            }
+            _unit.UnitAnimator.ResetTrigger();
+        }
+
+        public void FixedUpdate()
+        {
+            _unit.CheckDistanceToEnemy();
+        }
     }
 }
