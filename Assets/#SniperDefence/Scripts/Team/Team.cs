@@ -13,7 +13,7 @@ public abstract class Team : MonoBehaviour
         _units.Add(unit);
     }
 */
-  public void AddSpawned(DefenderSquat defenderSquat)
+  public void AddSpawned(DefenderSquad defenderSquat)
   {
     var defenders = defenderSquat.GetComponentsInChildren<Defender>();
 

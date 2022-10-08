@@ -35,9 +35,9 @@ public class PlayState : IGameState
     _battle.InitializeDefenders();
   }
   
-  private void OnSpawned(DefenderSquat defenderSquat)
+  private void OnSpawned(DefenderSquad defenderSquad)
   {
-    var defenders = defenderSquat.GetComponentsInChildren<Defender>();
+    var defenders = defenderSquad.GetComponentsInChildren<Defender>();
 
     for (int i = 0; i < defenders.Length; i++)
     {
@@ -45,7 +45,7 @@ public class PlayState : IGameState
       defenders[i].Initialize(_battle.TeamEnemy.Units);
     }
     
-    _battle.TeamDefender.AddSpawned(defenderSquat);
+    _battle.TeamDefender.AddSpawned(defenderSquad);
     // _teamDefender.AddSpawned(defender);
   }
 }

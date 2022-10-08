@@ -7,7 +7,7 @@ public class PlaceHolder : MonoBehaviour
   [SerializeField] private List<Grid> _grids = new List<Grid>();
   [SerializeField] private BuyButton[] _buyButtons;
 
-  public event Action<DefenderSquat> Spawned;
+  public event Action<DefenderSquad> Spawned;
   
   private void OnEnable()
   {
@@ -35,7 +35,7 @@ public class PlaceHolder : MonoBehaviour
     enabled = false;
   }
 
-  private void SpawnDefender(DefenderSquat defenderSquat)
+  private void SpawnDefender(DefenderSquad defenderSquad)
   {
     int count = 0;
 
@@ -43,9 +43,9 @@ public class PlaceHolder : MonoBehaviour
     {
       if (_grids[i].IsBusy == false)
       {
-        DefenderSquat newDefenderSquat = Instantiate(defenderSquat, _grids[i].transform.position, Quaternion.identity, transform);
-        Spawned?.Invoke(newDefenderSquat);
-        _grids[i].AddUnits(defenderSquat);
+        DefenderSquad newDefenderSquad = Instantiate(defenderSquad, _grids[i].transform.position, Quaternion.identity, transform);
+        Spawned?.Invoke(newDefenderSquad); 
+        _grids[i].AddUnits(defenderSquad);
         _grids[i].MakeIsBusy();
         count++;
       }

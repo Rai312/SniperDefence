@@ -176,13 +176,41 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
-  - name: Max2 1
-    path: Assets/Scenes/Max/Max2 1.unity
   - name: Max2
     path: Assets/Scenes/Max/Max2.unity
+  - name: Max2 2
+    path: Assets/Scenes/Max/Max2 2.unity
+  - name: Max2 1
+    path: Assets/Scenes/Max/Max2 1.unity
   - name: IlyaScene!!!
     path: Assets/Scenes/IlyaScene!!!.unity
-  - name: MaxScene!!!
-    path: Assets/Scenes/Max/MaxScene!!!.unity
-  - name: SampleScene 1
-    path: Assets/Scenes/SampleScene 1.unity
+  - name: TouchEvents
+    path: Assets/Plugins/CW/LeanTouch/Examples/TouchEvents.unity
+  - name: LeanTouch+
+    path: Assets/Plugins/CW/LeanTouch/Examples/LeanTouch+.unity
+  - name: 24       Isolate
+    path: Assets/Plugins/CW/LeanTouch/Examples/24       Isolate.unity
+  - name: 14 Selectable
+    path: Assets/Plugins/CW/LeanTouch/Examples/14 Selectable.unity
+  - name: 15 Tap To Select
+    path: Assets/Plugins/CW/LeanTouch/Examples/15 Tap To Select.unity
+  - name: 11 Finger Old
+    path: Assets/Plugins/CW/LeanTouch/Examples/11 Finger Old.unity
+  - name: 10       Double
+    path: Assets/Plugins/CW/LeanTouch/Examples/10       Double.unity
+  - name: 09       Block
+    path: Assets/Plugins/CW/LeanTouch/Examples/09       Block.unity
+  - name: 08    Spawn
+    path: Assets/Plugins/CW/LeanTouch/Examples/08    Spawn.unity
+  - name: 07 Finger Tap
+    path: Assets/Plugins/CW/LeanTouch/Examples/07 Finger Tap.unity
+  - name: 06    Direction 8
+    path: Assets/Plugins/CW/LeanTouch/Examples/06    Direction 8.unity
+  - name: 05    Direction 4
+    path: Assets/Plugins/CW/LeanTouch/Examples/05    Direction 4.unity
+  - name: 04    Rotation
+    path: Assets/Plugins/CW/LeanTouch/Examples/04    Rotation.unity
+  - name: 03 Finger Swipe
+    path: Assets/Plugins/CW/LeanTouch/Examples/03 Finger Swipe.unity
+  - name: 02 Finger Up
+    path: Assets/Plugins/CW/LeanTouch/Examples/02 Finger Up.unity

@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-  private DefenderSquat _defenderSquat;
+  private DefenderSquad _defenderSquad;
   private bool _isBusy = false;
 
   public bool IsBusy => _isBusy;
 
   public void MakeIsBusy() => _isBusy = true;
 
-  public void AddUnits(DefenderSquat defenderSquat)
-  {
-    _defenderSquat = defenderSquat;
-  }
+  public void AddUnits(DefenderSquad defenderSquad) => _defenderSquad = defenderSquad;
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 public abstract class BuyButton : MonoBehaviour
 {
   // [field: SerializeField] public Defender DefenderPrefab { get; private set; }
-  [field: SerializeField] public DefenderSquat DefenderSquat { get; private set; }
+  [field: SerializeField] public DefenderSquad DefenderSquad { get; private set; }
 
-  public event Action<DefenderSquat> ButtonClick;
+  public event Action<DefenderSquad> ButtonClick;
 
   protected virtual void OnButtonClick()
   {
-    ButtonClick?.Invoke(DefenderSquat);
+    ButtonClick?.Invoke(DefenderSquad);
   }
 }
