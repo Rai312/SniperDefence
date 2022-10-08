@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour//сделать абстрактным
 {
     [SerializeField] private float _movementSpeed;
+    [SerializeField] private int _damage;
 
     private Rigidbody _rigidbody;
 
@@ -17,7 +18,7 @@ public class Bullet : MonoBehaviour
         {
             //Debug.Log(enemy.name);
             //enemy.gameObject.SetActive(false);
-            enemy.Damage(200);
+            enemy.Damage(_damage);
             Destroy(gameObject);
         }
     }
