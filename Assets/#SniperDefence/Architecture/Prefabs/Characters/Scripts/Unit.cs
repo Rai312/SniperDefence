@@ -116,7 +116,6 @@ public abstract class Unit : MonoBehaviour
 
                     if (distanceToTarget < _targetDistance && _targets[i].IsAlive)
                     {
-                        //Debug.Log("TargetSearching - ������ - " + _targets[i]);
                         TargetSearching?.Invoke();
                     }
                 }
@@ -154,7 +153,6 @@ public abstract class Unit : MonoBehaviour
             float distanceToNearestTarget = float.MaxValue;
             for (int i = 0; i < _targets.Count; i++)
             {
-                //Debug.Log("EnemyFind");
                 if (_targets[i] is Defender && _targets[i].IsAlive)
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
@@ -174,7 +172,6 @@ public abstract class Unit : MonoBehaviour
             float distanceToNearestTarget = float.MaxValue;
             for (int i = 0; i < _targets.Count; i++)
             {
-                //Debug.Log("PoliceFind");
                 if (_targets[i] is Enemy && _targets[i].IsAlive)
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, _targets[i].transform.position);
