@@ -7,7 +7,6 @@ public class Enemy : Unit
 {
     [SerializeField] private ContainerFinishPoints _containerFinishPoints;
 
-
     private FinishPoint[] _finishPoints;
     private FinishPoint _finishPoint;
 

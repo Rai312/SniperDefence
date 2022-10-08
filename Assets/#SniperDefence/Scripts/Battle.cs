@@ -4,8 +4,11 @@ using UnityEngine.UI;
 
 public class Battle : MonoBehaviour
 {
-    [SerializeField] private Team _teamDefender;
-    [SerializeField] private Team _teamEnemy;
+    [SerializeField] private TeamDefender _teamDefender;
+    [SerializeField] private TeamEnemy _teamEnemy;
+
+    public TeamDefender TeamDefender => _teamDefender;
+    public TeamEnemy TeamEnemy => _teamEnemy;
 
     //[SerializeField] private Text _drawMessage;
     //[SerializeField] private Text _firstTeamWinText;

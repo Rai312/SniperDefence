@@ -4,16 +4,16 @@ public class PlayState : IGameState
 {
   private readonly UI _uI;
   private readonly PlaceHolder _placeHolder;
-  private readonly TeamEnemy _teamEnemy;
-  private readonly TeamDefender _teamDefender;
+  //private readonly TeamEnemy _teamEnemy;
+  //private readonly TeamDefender _teamDefender;
   private readonly Battle _battle;
 
-  public PlayState(UI uI, PlaceHolder placeHolder, TeamEnemy teamEnemy, TeamDefender teamDefender, Battle battle)
+  public PlayState(UI uI, PlaceHolder placeHolder, Battle battle)
   {
     _uI = uI;
     _placeHolder = placeHolder;
-    _teamEnemy = teamEnemy;
-    _teamDefender = teamDefender;
+    //_teamEnemy = teamEnemy;
+    //_teamDefender = teamDefender;
     _battle = battle;
   }
 
@@ -41,10 +41,11 @@ public class PlayState : IGameState
 
     for (int i = 0; i < defenders.Length; i++)
     {
-      defenders[i].Initialize(_teamEnemy.Units);
+      //defenders[i].Initialize(_teamEnemy.Units);
+      defenders[i].Initialize(_battle.TeamEnemy.Units);
     }
     
-    _teamDefender.AddSpawned(defenderSquat);
+    _battle.TeamDefender.AddSpawned(defenderSquat);
     // _teamDefender.AddSpawned(defender);
   }
 }

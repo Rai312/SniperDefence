@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            Debug.Log(enemy.name);
+            //Debug.Log(enemy.name);
             //enemy.gameObject.SetActive(false);
             enemy.Damage(200);
             Destroy(gameObject);

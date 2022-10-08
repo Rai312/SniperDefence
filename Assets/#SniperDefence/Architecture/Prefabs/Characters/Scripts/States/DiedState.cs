@@ -15,7 +15,7 @@ namespace UnitState
         {
             if (_unit is Unit)
             {
-                Debug.Log("DieState - Enter" + this);
+                //Debug.Log("DieState - Enter" + this);
             }
             //_unit.DeathParticle.Play();
             //_unit.NavMeshAgent.enabled = false;
