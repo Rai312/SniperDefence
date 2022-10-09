@@ -176,10 +176,12 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
-  - name: Max2
-    path: Assets/Scenes/Max/Max2.unity
+  - name: SerializableDicitonary Example
+    path: Assets/SerializableDictionary/Example/SerializableDicitonary Example.unity
   - name: Max2 2
     path: Assets/Scenes/Max/Max2 2.unity
+  - name: Max2
+    path: Assets/Scenes/Max/Max2.unity
   - name: Max2 1
     path: Assets/Scenes/Max/Max2 1.unity
   - name: IlyaScene!!!
@@ -212,5 +214,3 @@ MonoBehaviour:
     path: Assets/Plugins/CW/LeanTouch/Examples/04    Rotation.unity
   - name: 03 Finger Swipe
     path: Assets/Plugins/CW/LeanTouch/Examples/03 Finger Swipe.unity
-  - name: 02 Finger Up
-    path: Assets/Plugins/CW/LeanTouch/Examples/02 Finger Up.unity

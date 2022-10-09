@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class DefenderSquad : MonoBehaviour
 {
+  [field: SerializeField] public DefenderType Type { get; private set; }
+  [field: SerializeField] public int Level { get; private set; }
+
   private Defender[] _defenders;
 
   private void Awake()
@@ -15,8 +18,8 @@ public class DefenderSquad : MonoBehaviour
     {
       _defenders[i].DeactivateNavMeshAgent();
     }
-  }  
-  
+  }
+
   public void ActivateNavMesh()
   {
     for (int i = 0; i < _defenders.Length; i++)

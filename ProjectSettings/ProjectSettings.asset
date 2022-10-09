@@ -801,7 +801,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Android: UEE
+    Android: UEE;RH_SerializedDictionary
     Standalone: UEE
   additionalCompilerArguments: {}
   platformArchitecture: {}
