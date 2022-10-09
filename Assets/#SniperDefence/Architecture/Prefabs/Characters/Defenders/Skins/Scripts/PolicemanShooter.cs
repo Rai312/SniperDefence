@@ -20,7 +20,6 @@ public class PolicemanShooter : Defender
         float distanceToTarget = Vector3.Distance(bullet.transform.position, Target.transform.position);
         float shootTime = distanceToTarget / _shootSpeed;
 
-        Debug.Log(shootTime);
         bullet.transform.DOMove(Target.transform.position, shootTime).SetEase(Ease.Linear).OnComplete(() => { bullet.gameObject.SetActive(false); });
     }
 

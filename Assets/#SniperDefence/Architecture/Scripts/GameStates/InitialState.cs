@@ -18,10 +18,10 @@ public class InitialState : IGameState
     public void Enter()
     {
         //Debug.Log("InitialState - Enter");
-      //  _spawner.Initialize();
         _uI.OpeningMenu.Show();
-        //_battle.StartBattle();
+
         _battle.InitializeEnemies();
+        //_battle.WavesManager.InitializeWaves();
     }
 
     public void Exit()

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,9 +7,13 @@ public class Battle : MonoBehaviour
 {
     [SerializeField] private TeamDefender _teamDefender;
     [SerializeField] private TeamEnemy _teamEnemy;
+    [SerializeField] private WavesManager _wavesManager;
+    //[SerializeField] private List<TeamEnemy> _teamsEnemy;
 
     public TeamDefender TeamDefender => _teamDefender;
     public TeamEnemy TeamEnemy => _teamEnemy;
+    public WavesManager WavesManager => _wavesManager;
+    //public List<TeamEnemy> TeamsEnemy => _teamsEnemy;
 
     //[SerializeField] private Text _drawMessage;
     //[SerializeField] private Text _firstTeamWinText;
@@ -16,7 +21,7 @@ public class Battle : MonoBehaviour
 
     private void Awake()
     {
-        InitializeEnemies();
+        //InitializeEnemies();
     }
 
     private void OnDestroy()
@@ -44,7 +49,7 @@ public class Battle : MonoBehaviour
 
     public void InitializeEnemies()
     {
-
+        Debug.Log("InitializeEnemies");
         foreach (var unit in _teamEnemy.Units)
         {
             unit.Initialize(_teamDefender.Units);
