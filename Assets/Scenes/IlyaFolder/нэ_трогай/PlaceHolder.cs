@@ -43,9 +43,9 @@ public class PlaceHolder : MonoBehaviour
     {
       if (_grids[i].IsBusy == false)
       {
-        DefenderSquad newDefenderSquad = Instantiate(defenderSquad, _grids[i].transform.position, Quaternion.identity, transform);
+        DefenderSquad newDefenderSquad = Instantiate(defenderSquad, _grids[i].transform.position, Quaternion.identity, null);
         Spawned?.Invoke(newDefenderSquad); 
-        _grids[i].AddUnits(defenderSquad);
+        _grids[i].AddUnits(newDefenderSquad);
         _grids[i].MakeIsBusy();
         count++;
       }
