@@ -6425,6 +6425,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   _defenderFactory: {fileID: 1618568435}
+  _activeGridColor: {r: 0, g: 0.972549, b: 0.17764892, a: 1}
+  _inactiveGridColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &919934463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11555,6 +11557,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23e38359f304464c9af75c6e74b122d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shootingMap:
+    _keys:
+    - _key: 2
+      _value: {fileID: 2026160435681011992, guid: 66edd710959768b46ab477a8d065ed6e, type: 3}
+  _fighterMap:
+    _keys: []
 --- !u!1001 &1636244961
 PrefabInstance:
   m_ObjectHideFlags: 0

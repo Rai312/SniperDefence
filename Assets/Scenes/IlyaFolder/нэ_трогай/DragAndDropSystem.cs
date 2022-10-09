@@ -7,7 +7,6 @@ public class DragAndDropSystem : MonoBehaviour
   [SerializeField] private DefenderFactory _defenderFactory;
   [SerializeField] private Color _activeGridColor;
   [SerializeField] private Color _inactiveGridColor;
-  [SerializeField] private Color _hoverGridColor;
 
   private Grid _activeGrid;
   private Grid _hoverGrid;
@@ -32,7 +31,6 @@ public class DragAndDropSystem : MonoBehaviour
 
       if (Physics.Raycast(ray, out hit, _rayDistance, _gridLayerMask))
         GetInfoAboutGrid(hit);
-
 
       if (touch.phase == TouchPhase.Moved && _isDrag)
       {

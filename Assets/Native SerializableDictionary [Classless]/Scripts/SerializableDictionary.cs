@@ -20,7 +20,7 @@ namespace NativeSerializableDictionary
         [SerializeField] private List<SerializableKVP<K, V>> _keys = new List<SerializableKVP<K, V>>();
 
         // This is just a niceity which allows for a dictionary to become a SerializableDictionary directly
-        public static implicit operator SerializableDictionary<K, V>(Dictionary<K, V> dictionary)
+          public static implicit operator SerializableDictionary<K, V>(Dictionary<K, V> dictionary)
         {
             SerializableDictionary<K, V> serializableDict = dictionary;
             return serializableDict;

@@ -176,10 +176,12 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
-  - name: SerializableDicitonary Example
-    path: Assets/SerializableDictionary/Example/SerializableDicitonary Example.unity
   - name: Max2 2
     path: Assets/Scenes/Max/Max2 2.unity
+  - name: Example
+    path: Assets/Native SerializableDictionary [Classless]/Example Scene/Example.unity
+  - name: SerializableDicitonary Example
+    path: Assets/SerializableDictionary/Example/SerializableDicitonary Example.unity
   - name: Max2
     path: Assets/Scenes/Max/Max2.unity
   - name: Max2 1
@@ -212,5 +214,3 @@ MonoBehaviour:
     path: Assets/Plugins/CW/LeanTouch/Examples/05    Direction 4.unity
   - name: 04    Rotation
     path: Assets/Plugins/CW/LeanTouch/Examples/04    Rotation.unity
-  - name: 03 Finger Swipe
-    path: Assets/Plugins/CW/LeanTouch/Examples/03 Finger Swipe.unity
