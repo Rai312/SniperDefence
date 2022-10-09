@@ -35,21 +35,23 @@ public class CameraRotator : MonoBehaviour
   {
     if (Input.touchCount > 0)
     {
-      if (Input.GetTouch(0).phase == TouchPhase.Began)
+      Touch touch = Input.GetTouch(0);
+      
+      if (touch.phase == TouchPhase.Began)
       {
-        _firstPoint = Input.GetTouch(0).position;
+        _firstPoint = touch.position;
         _tempYrotation = _yRotation;
         _tempXrotation = _xRotation;
       }
 
-      if (Input.GetTouch(0).phase == TouchPhase.Moved)
+      if (touch.phase == TouchPhase.Moved)
       {
-        _secondPoint = Input.GetTouch(0).position;
+        _secondPoint = touch.position;
         _yRotation = (_tempYrotation + (_secondPoint.x - _firstPoint.x) * _sensitivity / Screen.width);
         _xRotation = (_tempXrotation + (_secondPoint.y - _firstPoint.y) * _sensitivity / Screen.width);
       }
 
-      if (Input.GetTouch(0).phase == TouchPhase.Ended)
+      if (touch.phase == TouchPhase.Ended)
       {
         _tempYrotation = _yRotation;
         _tempXrotation = _xRotation;

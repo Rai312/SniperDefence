@@ -6852,10 +6852,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 40
-  _xMinimumClamp: -70
-  _xMaximumClamp: 20
-  _yMinimumClamp: -50
-  _yMaximumClamp: 50
+  _xMinimumClamp: -40
+  _xMaximumClamp: 1
+  _yMinimumClamp: -40
+  _yMaximumClamp: 5
   _xStartRotation: 25.7
   _yStartRotation: 7.8
 --- !u!1001 &964079909

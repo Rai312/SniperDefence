@@ -18,6 +18,7 @@ public class OpticalSight : MonoBehaviour
   private float _timeBetweenShoot = 1.5f;
   private Sequence _shootAnimation;
   private bool _isWork = true;
+  private Coroutine _shoot;
 
   private bool _canShoot => _camera.fieldOfView < _targetFieldOfView;
 
@@ -39,7 +40,9 @@ public class OpticalSight : MonoBehaviour
   {
     if (Input.touchCount > 0)
     {
-      if (Input.GetTouch(0).phase == TouchPhase.Began)
+      Touch touch = Input.GetTouch(0);
+
+      if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
       {
         _elapsedTime = 0;
         _sight.SetActive(true);
@@ -47,9 +50,9 @@ public class OpticalSight : MonoBehaviour
         _fieldFovAnimation = _camera.DOFieldOfView(_targetZoom, _duration);
       }
 
-      if (Input.GetTouch(0).phase == TouchPhase.Ended)
+      if (touch.phase == TouchPhase.Ended)
       {
-        if (_canShoot == true && _isWork == true)
+        if (_canShoot && _isWork)
           Shoot();
         else
         {
@@ -75,14 +78,15 @@ public class OpticalSight : MonoBehaviour
   private void Shoot()
   {
     SightIsReleased?.Invoke();
-    StartCoroutine(ShootAnimation());
+    
+     StartCoroutine(ShootAnimation());
   }
 
   private IEnumerator ShootAnimation()
   {
-    float xOffset = 5;
+    float xOffset = 3;
     float duration = 0.2f;
-    float multiplier = 2f;
+    float multiplier = 1.5f;
 
     _shootAnimation = DOTween.Sequence();
     _isWork = false;
