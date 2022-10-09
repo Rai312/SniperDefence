@@ -18,6 +18,6 @@ public class Grid : MonoBehaviour
   public void MakeIsInactive() => _isActive = false;
 
 
-  public void AddUnits(DefenderSquad defenderSquad) => _defenderSquad = defenderSquad;
+  public void AddDefenderSquad(DefenderSquad defenderSquad) => _defenderSquad = defenderSquad;
   public void DeleteUnits() => _defenderSquad = null;
 }

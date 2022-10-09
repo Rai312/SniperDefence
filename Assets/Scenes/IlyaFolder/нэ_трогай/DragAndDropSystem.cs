@@ -28,7 +28,7 @@ public class DragAndDropSystem : MonoBehaviour
 
       if (Physics.Raycast(ray, out hit, _rayDistance, _gridLayerMask))
       {
-        if (hit.collider.TryGetComponent(out Grid grid) && _isDrag == false && grid.IsBusy )
+        if (hit.collider.TryGetComponent(out Grid grid) && _isDrag == false && grid.IsBusy)
         {
           _isDrag = true;
           _activeGrid = grid;
@@ -46,21 +46,25 @@ public class DragAndDropSystem : MonoBehaviour
         }
       }
 
-      if (touch.phase == TouchPhase.Ended && _isDrag|| touch.phase == TouchPhase.Canceled && _isDrag)
+      if (touch.phase == TouchPhase.Ended && _isDrag || touch.phase == TouchPhase.Canceled && _isDrag)
       {
         if (Physics.Raycast(ray, out hit, _rayDistance, _gridLayerMask))
         {
           if (hit.collider.TryGetComponent(out Grid grid) && grid.IsActive == false)
           {
-            if (grid.IsBusy == true)
+            if (grid.IsBusy)
             {
-            //  grid.AddUnits(_activeDefenderSquad);
-              _activeDefenderSquad.transform.position = _hoverGrid.transform.position;
+              DefenderSquad tempDefenderSquad = grid.DefenderSquad;
+              
+              grid.AddDefenderSquad(_activeGrid.DefenderSquad);
+              _activeGrid.DefenderSquad.transform.position = grid.transform.position;
+              _activeGrid.AddDefenderSquad(tempDefenderSquad);
+              tempDefenderSquad.transform.position = _activeGrid.transform.position;
             }
             else
             {
               _hoverGrid = grid;
-              _hoverGrid.AddUnits(_activeDefenderSquad);
+              _hoverGrid.AddDefenderSquad(_activeDefenderSquad);
               _hoverGrid.MakeIsBusy();
               _activeDefenderSquad.transform.position = _hoverGrid.transform.position;
               _activeDefenderSquad.ActivateNavMesh();
