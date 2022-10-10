@@ -176,14 +176,18 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
+  - name: GameLevel
+    path: Assets/DataAndAnalyticAsset/GameLevel.unity
+  - name: Screensaver
+    path: Assets/DataAndAnalyticAsset/Screensaver.unity
+  - name: Max2
+    path: Assets/Scenes/Max/Max2.unity
   - name: Max2 2
     path: Assets/Scenes/Max/Max2 2.unity
   - name: Example
     path: Assets/Native SerializableDictionary [Classless]/Example Scene/Example.unity
   - name: SerializableDicitonary Example
     path: Assets/SerializableDictionary/Example/SerializableDicitonary Example.unity
-  - name: Max2
-    path: Assets/Scenes/Max/Max2.unity
   - name: Max2 1
     path: Assets/Scenes/Max/Max2 1.unity
   - name: IlyaScene!!!
@@ -210,7 +214,3 @@ MonoBehaviour:
     path: Assets/Plugins/CW/LeanTouch/Examples/07 Finger Tap.unity
   - name: 06    Direction 8
     path: Assets/Plugins/CW/LeanTouch/Examples/06    Direction 8.unity
-  - name: 05    Direction 4
-    path: Assets/Plugins/CW/LeanTouch/Examples/05    Direction 4.unity
-  - name: 04    Rotation
-    path: Assets/Plugins/CW/LeanTouch/Examples/04    Rotation.unity
