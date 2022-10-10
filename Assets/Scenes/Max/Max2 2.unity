@@ -3962,7 +3962,7 @@ MonoBehaviour:
   - {fileID: 825464547}
   - {fileID: 1997962926}
   - {fileID: 1145300862}
-  _teamContainer: {fileID: 1824617794}
+  teamContainer: {fileID: 0}
 --- !u!1001 &653321374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5283,7 +5283,7 @@ MonoBehaviour:
   - {fileID: 2068008577}
   - {fileID: 996779929}
   - {fileID: 964079911}
-  _teamContainer: {fileID: 639750972}
+  teamContainer: {fileID: 0}
 --- !u!1001 &790744899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8034,7 +8034,7 @@ MonoBehaviour:
   - {fileID: 1334116932}
   - {fileID: 2135006646}
   - {fileID: 653321376}
-  _teamContainer: {fileID: 1712311052}
+  teamContainer: {fileID: 0}
 --- !u!4 &1201586251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6048198196425003736, guid: f2adf756b6a373f41978213283fd02be, type: 3}
@@ -9243,6 +9243,7 @@ MonoBehaviour:
   _placeHolder: {fileID: 1597540367}
   _teamDefender: {fileID: 2100487862}
   _teamEnemy: {fileID: 646380767}
+  _dragAndDropSystem: {fileID: 906466864}
 --- !u!4 &1398081042
 Transform:
   m_ObjectHideFlags: 0
@@ -14585,7 +14586,7 @@ MonoBehaviour:
   - {fileID: 1591840521}
   - {fileID: 418928270}
   - {fileID: 936066930}
-  _teamContainer: {fileID: 0}
+  _dragAndDropSystem: {fileID: 906466864}
 --- !u!1001 &2107448792
 PrefabInstance:
   m_ObjectHideFlags: 0
