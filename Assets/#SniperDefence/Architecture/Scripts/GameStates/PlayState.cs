@@ -31,6 +31,8 @@ public class PlayState : IGameState
     _battle.TeamDefender.DragAndDropSystem.Merged -= OnMerged;
     _placeHolder.Disable();
     _battle.InitializeDefenders();
+    _battle.TeamDefender.DragAndDropSystem.gameObject.SetActive(false);
+    _placeHolder.gameObject.SetActive(false);
   }
 
   private void OnSpawned(DefenderSquad defenderSquad)
