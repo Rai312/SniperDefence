@@ -176,12 +176,16 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
+  - name: Max2
+    path: Assets/Scenes/BuildScene/Max2.unity
+  - name: Screensaver
+    path: Assets/Scenes/BuildScene/Screensaver.unity
+  - name: Max2
+    path: Assets/Scenes/Max/Max2.unity
   - name: GameLevel
     path: Assets/DataAndAnalyticAsset/GameLevel.unity
   - name: Screensaver
     path: Assets/DataAndAnalyticAsset/Screensaver.unity
-  - name: Max2
-    path: Assets/Scenes/Max/Max2.unity
   - name: Max2 2
     path: Assets/Scenes/Max/Max2 2.unity
   - name: Example
@@ -210,7 +214,3 @@ MonoBehaviour:
     path: Assets/Plugins/CW/LeanTouch/Examples/09       Block.unity
   - name: 08    Spawn
     path: Assets/Plugins/CW/LeanTouch/Examples/08    Spawn.unity
-  - name: 07 Finger Tap
-    path: Assets/Plugins/CW/LeanTouch/Examples/07 Finger Tap.unity
-  - name: 06    Direction 8
-    path: Assets/Plugins/CW/LeanTouch/Examples/06    Direction 8.unity
