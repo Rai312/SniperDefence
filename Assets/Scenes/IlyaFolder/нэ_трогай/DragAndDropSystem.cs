@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class DragAndDropSystem : MonoBehaviour
 {
+  const int MaximumMergeLevel = 6;
+
   [SerializeField] private LayerMask _gridLayerMask;
   [SerializeField] private LayerMask _groundLayerMask;
   [SerializeField] private DefenderFactory _defenderFactory;
@@ -61,7 +63,10 @@ public class DragAndDropSystem : MonoBehaviour
             && _activeGrid.DefenderSquad.Level == grid.DefenderSquad.Level &&
             _activeGrid.DefenderSquad.Type == grid.DefenderSquad.Type)
         {
-          Merge(grid);
+          if (grid.DefenderSquad.Level == MaximumMergeLevel)
+            SwapPlaces(grid);
+          else
+            Merge(grid);
         }
         else if (grid.IsBusy)
           SwapPlaces(grid);
@@ -79,6 +84,7 @@ public class DragAndDropSystem : MonoBehaviour
 
   private void Merge(Grid grid)
   {
+    grid.ActivateMergeParticle();
     Destroy(grid.DefenderSquad.gameObject);
     Destroy(_activeGrid.DefenderSquad.gameObject);
     DefenderSquad defenderSquad =
@@ -117,7 +123,7 @@ public class DragAndDropSystem : MonoBehaviour
     RaycastHit hit;
     float yOffset = 1;
     float zeroOffset = 0;
-    
+
     if (Physics.Raycast(ray, out hit, _rayDistance, _groundLayerMask))
     {
       _activeDefenderSquad.DeactivateNavMesh();
