@@ -23,13 +23,17 @@ public abstract class Team : MonoBehaviour
     public void RemoveDefendersMerge(DefenderSquad[] defenderSquads)
     {
         // тут надо удалить дефендеров
-        for (int i = 0; i < defenderSquads.Length; i++)
+        if (this is TeamDefender)
         {
-            //var defenders = defenderSquat[i].GetComponentsInChildren<Defender>();
-            var defenders = defenderSquads[i].GetComponentsInChildren<Defender>();
-            for (int j = 0; j < defenders.Length; j++)
+            for (int i = 0; i < defenderSquads.Length; i++)
             {
-                //defenders[i].Died -= OnDied;
+                //var defenders = defenderSquat[i].GetComponentsInChildren<Defender>();
+                var defenders = defenderSquads[i].GetComponentsInChildren<Defender>();
+                for (int j = 0; j < defenders.Length; j++)
+                {
+                    defenders[j].gameObject.SetActive(false);
+                    _units.Remove(defenders[j]);
+                }
             }
         }
     }
