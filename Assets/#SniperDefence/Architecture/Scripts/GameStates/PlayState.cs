@@ -20,6 +20,7 @@ public class PlayState : IGameState
     _uI.PlayMenu.Show();
 
     _placeHolder.Spawned += OnSpawned;
+    _battle.TeamDefender.DragAndDropSystem.Merged += OnMerged;
   }
 
   public void Exit()
@@ -27,10 +28,11 @@ public class PlayState : IGameState
     _uI.PlayMenu.Hide();
     //Debug.Log("PlayState - Exit");
     _placeHolder.Spawned -= OnSpawned;
+    _battle.TeamDefender.DragAndDropSystem.Merged -= OnMerged;
     _placeHolder.Disable();
     _battle.InitializeDefenders();
   }
-  
+
   private void OnSpawned(DefenderSquad defenderSquad)
   {
     var defenders = defenderSquad.GetComponentsInChildren<Defender>();
@@ -41,5 +43,14 @@ public class PlayState : IGameState
     }
 
     _battle.TeamDefender.AddSpawned(defenderSquad);
+  }
+
+  private void OnMerged(DefenderSquad defenderSquad1, DefenderSquad defenderSquad2, DefenderSquad defenderSquad3)
+  {
+    OnSpawned(defenderSquad1);
+
+    DefenderSquad[] defenders = { defenderSquad2, defenderSquad3 };
+    
+    _battle.TeamDefender.RemoveDefendersMerge(defenders);
   }
 }

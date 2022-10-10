@@ -11,6 +11,7 @@ public class GameStateMachine : MonoBehaviour
     [SerializeField] private PlaceHolder _placeHolder;
     [SerializeField] private TeamDefender _teamDefender;
     [SerializeField] private TeamEnemy _teamEnemy;
+    [SerializeField] private DragAndDropSystem _dragAndDropSystem;
     
     private Dictionary<Type, IGameState> _statesMap;
     private IGameState _currentState;

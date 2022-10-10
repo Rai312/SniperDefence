@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DragAndDropSystem : MonoBehaviour
@@ -13,6 +14,8 @@ public class DragAndDropSystem : MonoBehaviour
   private DefenderSquad _activeDefenderSquad;
   private bool _isDrag = false;
   private float _rayDistance = float.PositiveInfinity;
+
+  public event Action<DefenderSquad, DefenderSquad, DefenderSquad> Merged;
 
   private void Update()
   {
@@ -37,7 +40,6 @@ public class DragAndDropSystem : MonoBehaviour
         _activeGrid.ChangeColor(_activeGridColor);
         StartDrag(ray);
       }
-
 
       if (touch.phase == TouchPhase.Ended && _isDrag || touch.phase == TouchPhase.Canceled && _isDrag)
       {
@@ -82,6 +84,7 @@ public class DragAndDropSystem : MonoBehaviour
     DefenderSquad defenderSquad =
       _defenderFactory.GetDefenderSquad(_activeGrid.DefenderSquad.Level + 1, _activeGrid.DefenderSquad.Type);
     DefenderSquad newDefenderSquad = Instantiate(defenderSquad, grid.transform.position, Quaternion.identity, null);
+    Merged?.Invoke(newDefenderSquad, grid.DefenderSquad, _activeGrid.DefenderSquad);
     grid.AddDefenderSquad(newDefenderSquad);
     _activeGrid.DeleteUnits();
     _activeGrid.MakeIsFree();
