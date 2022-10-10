@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Team : MonoBehaviour
 {
     [SerializeField] private List<Unit> _units;
-    
+
     public IReadOnlyList<Unit> Units => _units;
     public bool IsAlive { get; private set; } = true;
     
@@ -19,7 +19,21 @@ public abstract class Team : MonoBehaviour
             _units.Add(defenders[i]);
         }
     }
-    
+
+    public void RemoveDefendersMerge(DefenderSquad[] defenderSquads)
+    {
+        // тут надо удалить дефендеров
+        for (int i = 0; i < defenderSquads.Length; i++)
+        {
+            //var defenders = defenderSquat[i].GetComponentsInChildren<Defender>();
+            var defenders = defenderSquads[i].GetComponentsInChildren<Defender>();
+            for (int j = 0; j < defenders.Length; j++)
+            {
+                //defenders[i].Died -= OnDied;
+            }
+        }
+    }
+
     public bool CheckLose()
     {
         foreach (var unit in _units)
