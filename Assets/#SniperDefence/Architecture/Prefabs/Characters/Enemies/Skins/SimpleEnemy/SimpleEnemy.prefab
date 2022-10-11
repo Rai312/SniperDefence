@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitAnimator: {fileID: 9153191060563187330}
   _navMeshAgent: {fileID: 5130700585609868659}
-  _hitDistance: 1.25
+  _hitDistance: 1.5
   _targetDistance: 2
   _health: 100
   _damage: 30
