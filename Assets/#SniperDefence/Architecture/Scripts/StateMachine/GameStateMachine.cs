@@ -31,7 +31,7 @@ public class GameStateMachine : MonoBehaviour
     private void OnDisable()
     {
         _uI.OpeningMenu.StartButton.onClick.RemoveListener(SetPlayState);
-        //_uI.SniperMenu.StartButton.onClick.RemoveListener(SetSniperShootingState);
+        _uI.SniperMenu.StartButton.onClick.RemoveListener(SetSniperShootingState);
     }
 
     private void Start()
