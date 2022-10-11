@@ -177,7 +177,7 @@ MonoBehaviour:
   _unitAnimator: {fileID: 7586446213856673776}
   _navMeshAgent: {fileID: 4562796249212254069}
   _hitDistance: 2.5
-  _targetDistance: 5
+  _targetDistance: 7
   _health: 200
   _damage: 150
   _deathParticle: {fileID: 0}

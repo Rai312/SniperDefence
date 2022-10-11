@@ -49,7 +49,7 @@ public class Battle : MonoBehaviour
 
     public void InitializeEnemies()
     {
-        Debug.Log("InitializeEnemies");
+        //Debug.Log("InitializeEnemies");
         foreach (var unit in _teamEnemy.Units)
         {
             unit.Initialize(_teamDefender.Units);
