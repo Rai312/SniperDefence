@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44301134, g: 0.49199444, b: 0.571555, a: 1}
+  m_IndirectSpecularColor: {r: 0.4455495, g: 0.49522823, b: 0.57412714, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1292,7 +1292,15 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _fighterMap.items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
       propertyPath: _shootingMap._keys.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
@@ -1369,6 +1377,54 @@ PrefabInstance:
       objectReference: {fileID: 5100808523409944832, guid: c41ac38e7540148459e547a97a1f1288, type: 3}
     - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
       propertyPath: _shootingMap._keys.Array.data[4]._value
+      value: 
+      objectReference: {fileID: -3740387861289507330, guid: f5aa3ec2e88466d458cdb59f3895ce1e, type: 3}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _fighterMap.items.Array.data[0].<Key>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[0].<Key>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[1].<Key>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[2].<Key>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[3].<Key>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[4].<Key>k__BackingField
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _fighterMap.items.Array.data[0].<Value>k__BackingField
+      value: 
+      objectReference: {fileID: 5831726798451605177, guid: 8342fa2f64b78e949828c7fe62cb20cb, type: 3}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[0].<Value>k__BackingField
+      value: 
+      objectReference: {fileID: 2421791241937894910, guid: af118c43239184e4f9c0276a66a110af, type: 3}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[1].<Value>k__BackingField
+      value: 
+      objectReference: {fileID: 2819920263244541000, guid: 9c04e1b5ed1d7054490a7803b25044f6, type: 3}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[2].<Value>k__BackingField
+      value: 
+      objectReference: {fileID: 1715798733687915379, guid: 738c90c0819e5c641869b57b9ab7202b, type: 3}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[3].<Value>k__BackingField
+      value: 
+      objectReference: {fileID: 5100808523409944832, guid: c41ac38e7540148459e547a97a1f1288, type: 3}
+    - target: {fileID: 1241228935463624367, guid: 08c6cb5fdd1eb014ba6bd2caa2a448fa, type: 3}
+      propertyPath: _shootingMap.items.Array.data[4].<Value>k__BackingField
       value: 
       objectReference: {fileID: -3740387861289507330, guid: f5aa3ec2e88466d458cdb59f3895ce1e, type: 3}
     m_RemovedComponents: []
