@@ -8,7 +8,8 @@ public class ScreensaverSceneManager : MonoBehaviour
     [SerializeField] private AnalyticManager _analytic;
     [SerializeField] private Data _data;
 
-    private void Awake()
+    //private void Awake()
+    private void Start()
     {
         if (_isRemoveDataOnStart)
             _data.RemoveData();

@@ -12,6 +12,7 @@ public class GameSceneManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("ASDSADADSADSAD");
         _data.Load();
         _data.SetLevelIndex(SceneManager.GetActiveScene().buildIndex);
         /*PointsTransmitter.Instance.SetPoints(_data.GetCurrentSoft());*/

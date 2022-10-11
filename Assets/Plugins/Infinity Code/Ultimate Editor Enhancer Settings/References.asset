@@ -176,10 +176,12 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
-  - name: Max2
-    path: Assets/Scenes/BuildScene/Max2.unity
+  - name: BuildScene
+    path: Assets/Scenes/BuildScene/BuildScene.unity
   - name: Screensaver
     path: Assets/Scenes/BuildScene/Screensaver.unity
+  - name: Max2
+    path: Assets/Scenes/BuildScene/Max2.unity
   - name: Max2
     path: Assets/Scenes/Max/Max2.unity
   - name: GameLevel
@@ -212,5 +214,3 @@ MonoBehaviour:
     path: Assets/Plugins/CW/LeanTouch/Examples/10       Double.unity
   - name: 09       Block
     path: Assets/Plugins/CW/LeanTouch/Examples/09       Block.unity
-  - name: 08    Spawn
-    path: Assets/Plugins/CW/LeanTouch/Examples/08    Spawn.unity
