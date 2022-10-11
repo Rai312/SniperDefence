@@ -47,8 +47,8 @@ public abstract class Unit : MonoBehaviour
 
     private void OnDisable()
     {
-        if (_targets != null)
-            _target.Died -= OnTargetDied;
+        //if (_targets != null)
+        //    _target.Died -= OnTargetDied;
     }
 
     public void SetTarget()
