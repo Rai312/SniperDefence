@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5196301235933203976}
   m_Layer: 0
-  m_Name: City
+  m_Name: LVL 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

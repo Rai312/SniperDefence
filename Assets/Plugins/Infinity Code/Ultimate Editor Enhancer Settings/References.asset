@@ -176,9 +176,15 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
+  - name: Demo_Building_Interior_Dressing
+    path: Assets/PolygonApocalypse/Scenes/Demo_Building_Interior_Dressing.unity
+  - name: Demo_City_Standard
+    path: Assets/PolygonApocalypse/Scenes/Demo_City_Standard.unity
+  - name: Demo_Bunker
+    path: Assets/PolygonApocalypse/Scenes/Demo_Bunker.unity
+  - name: DanilScene
+    path: Assets/Scenes/IlyaFolder/DanilScene.unity
   - name: BuildScene
     path: Assets/Scenes/BuildScene/BuildScene.unity
   - name: Screensaver
     path: Assets/Scenes/BuildScene/Screensaver.unity
-  - name: DanilScene
-    path: Assets/Scenes/IlyaFolder/DanilScene.unity
