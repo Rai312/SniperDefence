@@ -176,7 +176,9 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
-  - name: DanilScene
-    path: Assets/Scenes/IlyaFolder/DanilScene.unity
   - name: BuildScene
     path: Assets/Scenes/BuildScene/BuildScene.unity
+  - name: Screensaver
+    path: Assets/Scenes/BuildScene/Screensaver.unity
+  - name: DanilScene
+    path: Assets/Scenes/IlyaFolder/DanilScene.unity
